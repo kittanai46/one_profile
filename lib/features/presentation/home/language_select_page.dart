@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one_profile/features/common/app_colors.dart';
-import 'package:one_profile/l10n/app_localizations.dart';
+import 'package:one_profile/features/l10n/app_localizations.dart';
 
 class LanguageSelectPage extends StatelessWidget {
   const LanguageSelectPage({super.key});

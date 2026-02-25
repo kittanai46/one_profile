@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:one_profile/l10n/app_localizations.dart';
+import 'package:one_profile/features/common/app_images.dart';
+import 'package:one_profile/features/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:one_profile/features/common/app_colors.dart';
 import 'package:one_profile/features/data/home_data.dart';
@@ -29,7 +30,7 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 16),
             child: Column(
               children: [
-                //ลำดับการจัดวาง Widget 
+                //ลำดับการจัดวาง Widget
                 WelcomeBanner(),
                 SkillBanner(),
                 HistoryBanner(),
@@ -401,8 +402,16 @@ class ApplicationDev extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20),
                   child: ProductCard(
                     product: popularProducts[index],
-                    onPress: () =>
-                        viewModel.onProductPressed(popularProducts[index]),
+                    onPress: () {
+                      if (index == 0) {
+                        Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.classTracking);
+                      } else {
+                        viewModel.onProductPressed(popularProducts[index]);
+                      }
+                    },
+                    isFirstProduct: index == 0,
                   ),
                 );
               }),
@@ -422,11 +431,13 @@ class ProductCard extends StatelessWidget {
     this.aspectRetio = 1.02,
     required this.product,
     required this.onPress,
+    this.isFirstProduct = false,
   }) : super(key: key);
 
   final double width, aspectRetio;
   final Product product;
   final VoidCallback onPress;
+  final bool isFirstProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -445,7 +456,9 @@ class ProductCard extends StatelessWidget {
                   color: AppColors.grey.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Image.network(product.images[0]),
+                child: isFirstProduct
+                    ? Image.asset(AppImages.classTracking)
+                    : Image.network(product.images[0]),
               ),
             ),
             const SizedBox(height: 8),
@@ -457,14 +470,15 @@ class ProductCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "\$${product.price}",
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.primary_accent,
+                if (!isFirstProduct)
+                  Text(
+                    "\$${product.price}",
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.primary_accent,
+                    ),
                   ),
-                ),
                 Consumer<HomeScreenViewModel>(
                   builder: (context, viewModel, _) => InkWell(
                     borderRadius: BorderRadius.circular(50),

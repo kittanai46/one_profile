@@ -7,7 +7,7 @@
   "settings": "การตั้งค่า",
   "language": "ภาษา",
   "logout": "ออกจากระบบ",
-  "welcomeMessageToProfile": "ยินดีต้อนรับสู่ประวัติส่วนตัวของฉัน",
+  "welcomeMessageToProfile": "",
   "skillsAbilities": "ทักษะและความสามารถ",
   "resumeCv": "Resume/CV",
   "workHistory": "ประวัติการทำงาน",
@@ -18,5 +18,17 @@
   "contactChannels": "ช่องทางการติดต่อ",
   "smartphoneCategory": "Smartphone",
   "fashionCategory": "Fashion",
-  "brands": "Brands"
+  "brands": "Brands",
+  "appdescription": "Digital Resume & Experience Showcase",
+  "classTrackingTitle": "ระบบติดตามชั้นเรียน",
+  "classTrackingDescription": "ระบบจัดการและติดตามชั้นเรียนที่ครอบคลุม ออกแบบมาเพื่อช่วยให้ครูและนักเรียนติดตามการเข้าเรียน คะแนน และความคืบหน้าของหลักสูตรแบบเรียลไทม์",
+  "keyFeatures": "คุณลักษณะที่สำคัญ",
+  "technologyStack": "สแต็กเทคโนโลยี",
+  "projectStats": "สถิติโครงการ",
+  "viewFullProject": "ดูโครงการทั้งหมด",
+  "yearStarted": "ปีที่เริ่มต้น",
+  "usersCount": "ผู้ใช้",
+  "ratingLabel": "คะแนน",
+  "github": "GitHub",
+  "liveDemo": "Live Demo"
 }

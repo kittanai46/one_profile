@@ -33,7 +33,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get logout => 'ออกจากระบบ';
 
   @override
-  String get welcomeMessageToProfile => 'ยินดีต้อนรับสู่ประวัติส่วนตัวของฉัน';
+  String get welcomeMessageToProfile => '';
 
   @override
   String get skillsAbilities => 'ทักษะและความสามารถ';
@@ -67,4 +67,41 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get brands => 'Brands';
+
+  @override
+  String get appdescription => 'Digital Resume & Experience Showcase';
+
+  @override
+  String get classTrackingTitle => 'ระบบติดตามชั้นเรียน';
+
+  @override
+  String get classTrackingDescription =>
+      'ระบบจัดการและติดตามชั้นเรียนที่ครอบคลุม ออกแบบมาเพื่อช่วยให้ครูและนักเรียนติดตามการเข้าเรียน คะแนน และความคืบหน้าของหลักสูตรแบบเรียลไทม์';
+
+  @override
+  String get keyFeatures => 'คุณลักษณะที่สำคัญ';
+
+  @override
+  String get technologyStack => 'สแต็กเทคโนโลยี';
+
+  @override
+  String get projectStats => 'สถิติโครงการ';
+
+  @override
+  String get viewFullProject => 'ดูโครงการทั้งหมด';
+
+  @override
+  String get yearStarted => 'ปีที่เริ่มต้น';
+
+  @override
+  String get usersCount => 'ผู้ใช้';
+
+  @override
+  String get ratingLabel => 'คะแนน';
+
+  @override
+  String get github => 'GitHub';
+
+  @override
+  String get liveDemo => 'Live Demo';
 }

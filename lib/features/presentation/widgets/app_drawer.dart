@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one_profile/features/presentation/routes/home_routes.dart';
-import 'package:one_profile/l10n/app_localizations.dart';
+import 'package:one_profile/features/l10n/app_localizations.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});

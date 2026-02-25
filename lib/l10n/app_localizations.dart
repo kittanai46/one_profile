@@ -217,6 +217,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Brands'**
   String get brands;
+
+  /// No description provided for @appdescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Digital Resume & Experience Showcase'**
+  String get appdescription;
+
+  /// No description provided for @classTrackingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Class Tracking System'**
+  String get classTrackingTitle;
+
+  /// No description provided for @classTrackingDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'A comprehensive class management and tracking system designed to help educators and students keep track of attendance, grades, and course progress in real-time.'**
+  String get classTrackingDescription;
+
+  /// No description provided for @keyFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Key Features'**
+  String get keyFeatures;
+
+  /// No description provided for @technologyStack.
+  ///
+  /// In en, this message translates to:
+  /// **'Technology Stack'**
+  String get technologyStack;
+
+  /// No description provided for @projectStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Project Stats'**
+  String get projectStats;
+
+  /// No description provided for @viewFullProject.
+  ///
+  /// In en, this message translates to:
+  /// **'View Full Project'**
+  String get viewFullProject;
+
+  /// No description provided for @yearStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Year Started'**
+  String get yearStarted;
+
+  /// No description provided for @usersCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Users'**
+  String get usersCount;
+
+  /// No description provided for @ratingLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Rating'**
+  String get ratingLabel;
+
+  /// No description provided for @github.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub'**
+  String get github;
+
+  /// No description provided for @liveDemo.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Demo'**
+  String get liveDemo;
 }
 
 class _AppLocalizationsDelegate

@@ -18,5 +18,17 @@
   "contactChannels": "Contact channels",
   "smartphoneCategory": "Smartphone",
   "fashionCategory": "Fashion",
-  "brands": "Brands"
+  "brands": "Brands",
+  "appdescription": "Digital Resume & Experience Showcase",
+  "classTrackingTitle": "Class Tracking System",
+  "classTrackingDescription": "A comprehensive class management and tracking system designed to help educators and students keep track of attendance, grades, and course progress in real-time.",
+  "keyFeatures": "Key Features",
+  "technologyStack": "Technology Stack",
+  "projectStats": "Project Stats",
+  "viewFullProject": "View Full Project",
+  "yearStarted": "Year Started",
+  "usersCount": "Users",
+  "ratingLabel": "Rating",
+  "github": "GitHub",
+  "liveDemo": "Live Demo"
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one_profile/features/common/app_font.dart';
-import 'package:one_profile/l10n/app_localizations.dart';
+import 'package:one_profile/features/l10n/app_localizations.dart';
 import 'package:one_profile/features/presentation/routes/home_routes.dart';
 
 class ResponsiveNavBar extends StatelessWidget {
@@ -23,7 +23,7 @@ class ResponsiveNavBar extends StatelessWidget {
           children: [
             Text(
               '${AppLocalizations.of(context)!.welcome} ${AppLocalizations.of(context)!.appTitle}',
-              style: AppFont.robotoHeadingSmall.copyWith(color: Colors.black),
+              style: AppFont.promptBodyLarge.copyWith(color: Colors.black),
             ),
             if (isLargeScreen) _navBarItems(context),
           ],
