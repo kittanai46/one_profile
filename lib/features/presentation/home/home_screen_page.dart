@@ -29,6 +29,7 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 16),
             child: Column(
               children: [
+                //ลำดับการจัดวาง Widget 
                 WelcomeBanner(),
                 SkillBanner(),
                 HistoryBanner(),
