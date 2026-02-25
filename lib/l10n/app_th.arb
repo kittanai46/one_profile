@@ -1,0 +1,22 @@
+{
+  "appTitle": "One Profile",
+  "welcome": "ยินดีต้อนรับสู่",
+  "helloWorld": "สวัสดีชาวโลก",
+  "profile": "โปรไฟล์",
+  "resume": "ประวัติการศึกษา",
+  "settings": "การตั้งค่า",
+  "language": "ภาษา",
+  "logout": "ออกจากระบบ",
+  "welcomeMessageToProfile": "ยินดีต้อนรับสู่ประวัติส่วนตัวของฉัน",
+  "skillsAbilities": "ทักษะและความสามารถ",
+  "resumeCv": "Resume/CV",
+  "workHistory": "ประวัติการทำงาน",
+  "cashbackOffer": "Cashback 20%",
+  "competitionAndCollaboration": "การแข่งขันและร่วมงาน",
+  "seeMore": "ดูเพิ่มเติม",
+  "applicationsDeveloped": "แอปพลิเคชันที่เคย/ร่วมพัฒนา",
+  "contactChannels": "ช่องทางการติดต่อ",
+  "smartphoneCategory": "Smartphone",
+  "fashionCategory": "Fashion",
+  "brands": "Brands"
+}

@@ -1,0 +1,1 @@
+ /Users/kittanai46/Desktop/one_profile/lib/l10n/app_localizations_en.dart /Users/kittanai46/Desktop/one_profile/lib/l10n/app_localizations_th.dart /Users/kittanai46/Desktop/one_profile/lib/l10n/app_localizations.dart:  /Users/kittanai46/Desktop/one_profile/l10n.yaml /Users/kittanai46/Desktop/one_profile/lib/l10n/app_en.arb /Users/kittanai46/Desktop/one_profile/lib/l10n/app_th.arb
