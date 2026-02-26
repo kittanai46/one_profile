@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:one_profile/features/common/app_images.dart';
 import 'package:one_profile/features/common/app_font.dart';
 import 'package:one_profile/l10n/app_localizations.dart';
+import 'package:one_profile/l10n/locale_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:one_profile/features/common/app_colors.dart';
 import 'package:one_profile/features/data/home_data.dart';
@@ -18,34 +19,52 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => HomeScreenViewModel(),
-      child: Scaffold(
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(kToolbarHeight),
-          child: ResponsiveNavBar(),
-        ),
-        endDrawer: const AppDrawer(),
-        body: const SafeArea(
-          child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(vertical: 16),
-            child: Column(
-              children: [
-                //ลำดับการจัดวาง Widget
-                WelcomeBanner(),
-                SizedBox(height: 20),
-                SkillBanner(),
-                SizedBox(height: 20),
-                ApplicationDev(),
-                SpecialOffers(),
-                SizedBox(height: 20),
-                HistoryBanner(),
-                ContactBanner(),
-              ],
-            ),
+    return Consumer<LocaleProvider>(
+      builder: (context, localeProvider, _) {
+        return ChangeNotifierProvider(
+          key: ValueKey<String>(localeProvider.locale.languageCode),
+          create: (_) => HomeScreenViewModel(),
+          child: Consumer<HomeScreenViewModel>(
+            builder: (context, viewModel, _) {
+              final localizations = AppLocalizations.of(context)!;
+              // Initialize with localization after build phase completes
+              if (viewModel.popularProducts.isEmpty) {
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  viewModel.initializeDataWithLocalization(localizations);
+                });
+              }
+              return Scaffold(
+                appBar: const PreferredSize(
+                  preferredSize: Size.fromHeight(kToolbarHeight),
+                  child: ResponsiveNavBar(),
+                ),
+                endDrawer: const AppDrawer(),
+                body: SafeArea(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: Column(
+                      children: [
+                        //ลำดับการจัดวาง Widget
+                        const WelcomeBanner(),
+                        const SizedBox(height: 25),
+                        const SkillBanner(),
+                        const SizedBox(height: 20),
+                        const ApplicationDev(),
+                        const SizedBox(height: 20),
+                        const SpecialOffers(),
+                        const SizedBox(height: 20),
+                        const HistoryBanner(),
+                        const SizedBox(height: 20),
+                        const ContactBanner(),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
@@ -195,9 +214,6 @@ class ApplicationDev extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.read<HomeScreenViewModel>();
-    final popularProducts = viewModel.getPopularProducts();
-
     return Column(
       children: [
         Padding(
@@ -208,30 +224,35 @@ class ApplicationDev extends StatelessWidget {
                 Navigator.of(context).pushNamed(AppRoutes.applicationDev),
           ),
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              ...List.generate(popularProducts.length, (index) {
-                return Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: ProductCard(
-                    product: popularProducts[index],
-                    onPress: () {
-                      if (index == 0) {
-                        Navigator.of(
-                          context,
-                        ).pushNamed(AppRoutes.classTracking);
-                      } else {
-                        viewModel.onProductPressed(popularProducts[index]);
-                      }
-                    },
-                    isFirstProduct: index == 0,
-                  ),
-                );
-              }),
-            ],
-          ),
+        Consumer<HomeScreenViewModel>(
+          builder: (context, viewModel, _) {
+            final popularProducts = viewModel.getPopularProducts();
+            return SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  ...List.generate(popularProducts.length, (index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: ProductCard(
+                        product: popularProducts[index],
+                        onPress: () {
+                          if (index == 0) {
+                            Navigator.of(
+                              context,
+                            ).pushNamed(AppRoutes.classTracking);
+                          } else {
+                            viewModel.onProductPressed(popularProducts[index]);
+                          }
+                        },
+                        isFirstProduct: index == 0,
+                      ),
+                    );
+                  }),
+                ],
+              ),
+            );
+          },
         ),
       ],
     );
@@ -489,46 +510,6 @@ class ProductCard extends StatelessWidget {
               product.title,
               style: Theme.of(context).textTheme.bodyMedium,
               maxLines: 2,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                if (!isFirstProduct)
-                  Text(
-                    "\$${product.price}",
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.primary_accent,
-                    ),
-                  ),
-                Consumer<HomeScreenViewModel>(
-                  builder: (context, viewModel, _) => InkWell(
-                    borderRadius: BorderRadius.circular(50),
-                    onTap: () => viewModel.onFavoriteToggle(product),
-                    child: Container(
-                      padding: const EdgeInsets.all(6),
-                      height: 24,
-                      width: 24,
-                      decoration: BoxDecoration(
-                        color: product.isFavourite
-                            ? AppColors.primary_accent.withOpacity(0.15)
-                            : AppColors.grey.withOpacity(0.1),
-                        shape: BoxShape.circle,
-                      ),
-                      child: SvgPicture.string(
-                        heartIcon,
-                        colorFilter: ColorFilter.mode(
-                          product.isFavourite
-                              ? AppColors.primary_red
-                              : AppColors.lightGrey,
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
             ),
           ],
         ),

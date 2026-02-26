@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:one_profile/features/data/home_data.dart';
+import 'package:one_profile/l10n/app_localizations.dart';
 
 class HomeScreenViewModel extends ChangeNotifier {
   // Categories
   late List<Map<String, dynamic>> categories;
 
   // Products
-  late List<Product> popularProducts;
+  List<Product> popularProducts = [];
 
   // Constructor
   HomeScreenViewModel() {
     _initializeData();
   }
 
+  // Initialize data with localization
+  void initializeDataWithLocalization(AppLocalizations localizations) {
+    _initializeCategories();
+    _initializePopularProductsWithLocalization(localizations);
+    notifyListeners();
+  }
+
   // Initialize data
   void _initializeData() {
     _initializeCategories();
-    _initializePopularProducts();
   }
 
   // Initialize categories
@@ -30,9 +37,10 @@ class HomeScreenViewModel extends ChangeNotifier {
     ];
   }
 
-  // Get popular products
-  void _initializePopularProducts() {
-    popularProducts = demoProducts
+  // Get popular products with localization
+  void _initializePopularProductsWithLocalization(AppLocalizations localizations) {
+    final allProducts = getDemoProducts(localizations);
+    popularProducts = allProducts
         .where((product) => product.isPopular)
         .toList();
   }
@@ -58,13 +66,6 @@ class HomeScreenViewModel extends ChangeNotifier {
     // Handle product navigation or action
     debugPrint('Product ${product.title} pressed');
   }
-
-  // On favorite toggle
-  void onFavoriteToggle(Product product) {
-    product.isFavourite = !product.isFavourite;
-    notifyListeners();
-  }
-
   // On search
   void onSearch(String query) {
     // Handle search logic

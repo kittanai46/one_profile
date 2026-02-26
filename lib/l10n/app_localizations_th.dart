@@ -116,4 +116,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get text_location => 'ปัจจุบันอยู่ที่: กรุงเทพฯ/แขวงรัชดาภิเษก';
+
+  @override
+  String get product01 => 'Class Tracking\nแอปพลิเคชัน';
 }

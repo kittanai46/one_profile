@@ -313,6 +313,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Currently at Bangkok'**
   String get text_location;
+
+  /// No description provided for @product01.
+  ///
+  /// In en, this message translates to:
+  /// **'Class Tracking\nApplication'**
+  String get product01;
 }
 
 class _AppLocalizationsDelegate

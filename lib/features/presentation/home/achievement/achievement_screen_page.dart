@@ -1,8 +1,8 @@
 // ignore_for_file: use_super_parameters, deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:one_profile/features/presentation/routes/home_routes.dart';
+import 'package:one_profile/l10n/app_localizations.dart';
 
 import '../../../data/home_data.dart';
 import 'achievement_list.dart';
@@ -12,7 +12,8 @@ class ProductsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final achievementItems = achievementlist(demoProducts);
+    final localizations = AppLocalizations.of(context)!;
+    final achievementItems = achievementlist(getDemoProducts(localizations));
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -88,44 +89,6 @@ class ProductCard extends StatelessWidget {
               product.title,
               style: Theme.of(context).textTheme.bodyMedium,
               maxLines: 2,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                if (!item.useAssetImage)
-                  Text(
-                    "\$${product.price}",
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFFFF7643),
-                    ),
-                  ),
-                InkWell(
-                  borderRadius: BorderRadius.circular(50),
-                  onTap: () {},
-                  child: Container(
-                    padding: const EdgeInsets.all(6),
-                    height: 24,
-                    width: 24,
-                    decoration: BoxDecoration(
-                      color: product.isFavourite
-                          ? const Color(0xFFFF7643).withOpacity(0.15)
-                          : const Color(0xFF979797).withOpacity(0.1),
-                      shape: BoxShape.circle,
-                    ),
-                    child: SvgPicture.string(
-                      heartIcon,
-                      colorFilter: ColorFilter.mode(
-                        product.isFavourite
-                            ? const Color(0xFFFF4848)
-                            : const Color(0xFFDBDEE4),
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
             ),
           ],
         ),

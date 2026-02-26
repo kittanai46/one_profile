@@ -116,4 +116,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get text_location => 'Currently at Bangkok';
+
+  @override
+  String get product01 => 'Class Tracking\nApplication';
 }
