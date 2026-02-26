@@ -104,4 +104,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get liveDemo => 'Live Demo';
+
+  @override
+  String get splash => 'Back to fist page';
+
+  @override
+  String get text_name => 'Mr.Kittanai Srikham (Kit)';
+
+  @override
+  String get text_position => 'Flutter developer';
+
+  @override
+  String get text_location => 'Currently at Bangkok';
 }

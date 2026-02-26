@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:one_profile/features/common/app_colors.dart';
-import 'package:one_profile/features/l10n/app_localizations.dart';
+import 'package:one_profile/l10n/app_localizations.dart';
+import 'package:one_profile/l10n/locale_provider.dart';
+import 'package:provider/provider.dart';
 
 class LanguageSelectPage extends StatelessWidget {
   const LanguageSelectPage({super.key});
@@ -21,27 +23,37 @@ class LanguageSelectPage extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            // English
-            _LanguageOption(
-              language: 'English',
-              code: 'en',
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            const Divider(height: 1),
-            // Thai
-            _LanguageOption(
-              language: 'ไทย',
-              code: 'th',
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            const Divider(height: 1),
-          ],
+        child: Consumer<LocaleProvider>(
+          builder: (context, localeProvider, _) {
+            return Column(
+              children: [
+                // English
+                _LanguageOption(
+                  language: 'English',
+                  code: 'en',
+                  isSelected: localeProvider.locale.languageCode == 'en',
+                  onTap: () {
+                    context.read<LocaleProvider>().setLocale(
+                      const Locale('en'),
+                    );
+                  },
+                ),
+                const Divider(height: 1),
+                // Thai
+                _LanguageOption(
+                  language: 'ไทย',
+                  code: 'th',
+                  isSelected: localeProvider.locale.languageCode == 'th',
+                  onTap: () {
+                    context.read<LocaleProvider>().setLocale(
+                      const Locale('th'),
+                    );
+                  },
+                ),
+                const Divider(height: 1),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -51,11 +63,13 @@ class LanguageSelectPage extends StatelessWidget {
 class _LanguageOption extends StatelessWidget {
   final String language;
   final String code;
+  final bool isSelected;
   final VoidCallback onTap;
 
   const _LanguageOption({
     required this.language,
     required this.code,
+    required this.isSelected,
     required this.onTap,
   });
 
@@ -84,7 +98,10 @@ class _LanguageOption extends StatelessWidget {
                 ),
               ],
             ),
-            const Icon(Icons.check, color: AppColors.primary_violet),
+            if (isSelected)
+              const Icon(Icons.check_circle, color: AppColors.primary_violet)
+            else
+              const Icon(Icons.radio_button_unchecked, color: Colors.grey),
           ],
         ),
       ),

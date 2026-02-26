@@ -30,5 +30,10 @@
   "usersCount": "Users",
   "ratingLabel": "Rating",
   "github": "GitHub",
-  "liveDemo": "Live Demo"
+  "liveDemo": "Live Demo",
+  "splash": "Back to fist page",
+
+  "text_name": "Mr.Kittanai Srikham (Kit)",
+  "text_position":"Flutter developer",
+  "text_location":"Currently at Bangkok"
 }

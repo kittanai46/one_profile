@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one_profile/features/presentation/routes/home_routes.dart';
-import 'package:one_profile/features/l10n/app_localizations.dart';
+import 'package:one_profile/l10n/app_localizations.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -23,6 +23,14 @@ class AppDrawer extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.info),
+            title: Text(AppLocalizations.of(context)!.splash),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pushNamed(AppRoutes.splash);
+            },
           ),
           ListTile(
             leading: const Icon(Icons.language),

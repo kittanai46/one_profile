@@ -7,14 +7,14 @@
   "settings": "การตั้งค่า",
   "language": "ภาษา",
   "logout": "ออกจากระบบ",
-  "welcomeMessageToProfile": "",
+  "welcomeMessageToProfile": "นายกฤตดนัย ศรีคำ",
   "skillsAbilities": "ทักษะและความสามารถ",
   "resumeCv": "Resume/CV",
   "workHistory": "ประวัติการทำงาน",
   "cashbackOffer": "Cashback 20%",
   "competitionAndCollaboration": "การแข่งขันและร่วมงาน",
   "seeMore": "ดูเพิ่มเติม",
-  "applicationsDeveloped": "แอปพลิเคชันที่เคย/ร่วมพัฒนา",
+  "applicationsDeveloped": "ผลงานที่ผ่านมา",
   "contactChannels": "ช่องทางการติดต่อ",
   "smartphoneCategory": "Smartphone",
   "fashionCategory": "Fashion",
@@ -30,5 +30,11 @@
   "usersCount": "ผู้ใช้",
   "ratingLabel": "คะแนน",
   "github": "GitHub",
-  "liveDemo": "Live Demo"
+  "liveDemo": "Live Demo",
+  "splash": "กลับไปหน้าแรก",
+
+  "text_name": "นายกฤตดนัย ศรีคำ (กิต)",
+  "text_position":"ตำแหน่ง: Flutter developer",
+  "text_location":"ปัจจุบันอยู่ที่: กรุงเทพฯ/แขวงรัชดาภิเษก"
+
 }

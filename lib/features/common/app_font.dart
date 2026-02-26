@@ -62,6 +62,12 @@ class AppFont {
   );
 
   // Prompt - Body
+
+  static TextStyle promptBodyTitle = GoogleFonts.prompt(
+    fontSize: 18,
+    fontWeight: FontWeight.normal,
+  );
+
   static TextStyle promptBodyLarge = GoogleFonts.prompt(
     fontSize: 16,
     fontWeight: FontWeight.normal,

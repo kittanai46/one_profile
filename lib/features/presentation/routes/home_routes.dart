@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:one_profile/features/presentation/home/home_screen_page.dart';
 import 'package:one_profile/features/presentation/home/splash_screen_page.dart';
 import 'package:one_profile/features/presentation/home/achievement/achievement_screen_page.dart';
-import 'package:one_profile/features/presentation/home/achievement/classtracking_screen_page.dart';
+import 'package:one_profile/features/presentation/home/achievement/achievement_list/classtracking_screen_page.dart';
 import 'package:one_profile/features/presentation/home/language_select_page.dart';
 
 class AppRoutes {

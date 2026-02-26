@@ -289,6 +289,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Live Demo'**
   String get liveDemo;
+
+  /// No description provided for @splash.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to fist page'**
+  String get splash;
+
+  /// No description provided for @text_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Mr.Kittanai Srikham (Kit)'**
+  String get text_name;
+
+  /// No description provided for @text_position.
+  ///
+  /// In en, this message translates to:
+  /// **'Flutter developer'**
+  String get text_position;
+
+  /// No description provided for @text_location.
+  ///
+  /// In en, this message translates to:
+  /// **'Currently at Bangkok'**
+  String get text_location;
 }
 
 class _AppLocalizationsDelegate

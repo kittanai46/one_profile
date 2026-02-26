@@ -3,11 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:one_profile/features/common/app_colors.dart';
+import 'package:one_profile/features/common/app_images.dart';
 import 'package:one_profile/features/data/project_data.dart';
-import 'package:one_profile/features/presentation/home/achievement/template_screen_page.dart';
 
-import '../../../../l10n/app_localizations.dart';
-
+import '../../../../../l10n/app_localizations.dart';
 
 class ClassTrackingScreen extends StatelessWidget {
   const ClassTrackingScreen({super.key});
@@ -16,25 +15,25 @@ class ClassTrackingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final project = classTrackingProject;
     final l10n = AppLocalizations.of(context);
-    
+
     if (l10n == null) {
       return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const Text('Class Tracking'),
+          centerTitle: true,
+          title: const Text('Bluetooth Class Tracking'),
           elevation: 0,
           backgroundColor: AppColors.primary_violet,
           foregroundColor: Colors.white,
         ),
-        body: const Center(
-          child: Text('Unable to load localization'),
-        ),
+        body: const Center(child: Text('Unable to load localization')),
       );
     }
 
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
         title: Text(l10n.classTrackingTitle),
         elevation: 0,
         backgroundColor: AppColors.primary_violet,
@@ -49,7 +48,6 @@ class ClassTrackingScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
                     project.imageAsset,
                     height: 250,
@@ -60,17 +58,42 @@ class ClassTrackingScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              // Title and Description using Banner Template
-              BannerTemplate(
-                title: project.title,
-                subtitle: project.description,
-                backgroundColor: AppColors.primary_violet.withOpacity(0.1),
-                textColor: AppColors.primary_black,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 16,
+              // Title and Description Section
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 16,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.primary_violet.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        project.title,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.primary_black,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        project.description,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.primary_black,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                borderRadius: 12,
               ),
               const SizedBox(height: 24),
 
@@ -80,12 +103,58 @@ class ClassTrackingScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SectionHeaderTemplate(title: l10n.keyFeatures),
+                    Text(
+                      l10n.keyFeatures,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    ),
                     const SizedBox(height: 16),
                     ..._buildFeatureList(context, project.features),
                   ],
                 ),
               ),
+
+              const SizedBox(height: 24),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Image.asset(
+                  AppImages.classTrackingPage,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'Application Interface',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.primary_black,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'A comprehensive interface for tracking class attendance and managing student information with real-time updates.',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: AppColors.primary_black,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 24),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Divider(color: Colors.grey[300]),
+              ),
+
               const SizedBox(height: 24),
 
               // Tech Stack Section
@@ -94,7 +163,14 @@ class ClassTrackingScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SectionHeaderTemplate(title: l10n.technologyStack),
+                    Text(
+                      l10n.technologyStack,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    ),
                     const SizedBox(height: 12),
                     _buildTechStack(context, project.technologies),
                   ],
@@ -108,16 +184,16 @@ class ClassTrackingScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SectionHeaderTemplate(title: l10n.projectStats),
-                    const SizedBox(height: 16),
-                    StatsTemplate(
-                      stats: project.stats
-                          .map(
-                            (stat) =>
-                                StatItem(value: stat.value, label: stat.label),
-                          )
-                          .toList(),
+                    Text(
+                      l10n.projectStats,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
                     ),
+                    const SizedBox(height: 16),
+                    _buildStatsWidget(context, project.stats),
                   ],
                 ),
               ),
@@ -241,6 +317,35 @@ class ClassTrackingScreen extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
+            ),
+          )
+          .toList(),
+    );
+  }
+
+  Widget _buildStatsWidget(BuildContext context, List<ProjectStat> stats) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: stats
+          .map(
+            (stat) => Column(
+              children: [
+                Text(
+                  stat.value,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.primary_black,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  stat.label,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: AppColors.primary_black,
+                  ),
+                ),
+              ],
             ),
           )
           .toList(),

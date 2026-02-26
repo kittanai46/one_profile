@@ -33,7 +33,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get logout => 'ออกจากระบบ';
 
   @override
-  String get welcomeMessageToProfile => '';
+  String get welcomeMessageToProfile => 'นายกฤตดนัย ศรีคำ';
 
   @override
   String get skillsAbilities => 'ทักษะและความสามารถ';
@@ -54,7 +54,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get seeMore => 'ดูเพิ่มเติม';
 
   @override
-  String get applicationsDeveloped => 'แอปพลิเคชันที่เคย/ร่วมพัฒนา';
+  String get applicationsDeveloped => 'ผลงานที่ผ่านมา';
 
   @override
   String get contactChannels => 'ช่องทางการติดต่อ';
@@ -104,4 +104,16 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get liveDemo => 'Live Demo';
+
+  @override
+  String get splash => 'กลับไปหน้าแรก';
+
+  @override
+  String get text_name => 'นายกฤตดนัย ศรีคำ (กิต)';
+
+  @override
+  String get text_position => 'ตำแหน่ง: Flutter developer';
+
+  @override
+  String get text_location => 'ปัจจุบันอยู่ที่: กรุงเทพฯ/แขวงรัชดาภิเษก';
 }

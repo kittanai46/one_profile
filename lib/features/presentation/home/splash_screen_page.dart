@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../data/splash_data.dart';
 import 'package:one_profile/services/app_preferences.dart';
 import 'package:one_profile/features/common/app_colors.dart';
+import 'package:one_profile/features/common/app_font.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -56,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen> {
                             width: currentPage == index ? 20 : 6,
                             decoration: BoxDecoration(
                               color: currentPage == index
-                                  ? AppColors.primary_accent
+                                  ? AppColors.primary_blue
                                   : const Color(0xFFD8D8D8),
                               borderRadius: BorderRadius.circular(3),
                             ),
@@ -76,15 +77,16 @@ class _SplashScreenState extends State<SplashScreen> {
                         },
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
-                          backgroundColor: AppColors.primary_accent,
+                          backgroundColor: AppColors.primary_blue,
                           foregroundColor: Colors.white,
-                          minimumSize: const Size(double.infinity, 48),
+                          minimumSize: const Size(300, 48),
                           shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(16)),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
                           ),
                         ),
-                        child: const Text("Continue"),
+                        child: Text("ข้าม", style: AppFont.promptBodyLarge),
                       ),
+                      const SizedBox(height: 20),
                       const Spacer(),
                     ],
                   ),
@@ -113,16 +115,16 @@ class _SplashContentState extends State<SplashContent> {
       children: <Widget>[
         const Spacer(),
         const Text(
-          "TOKOTO",
+          "One Profile",
           style: TextStyle(
             fontSize: 32,
-            color: AppColors.primary_accent,
+            color: AppColors.primary_blue,
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(widget.text!, textAlign: TextAlign.center),
         const Spacer(flex: 2),
-        Image.network(
+        Image.asset(
           widget.image!,
           fit: BoxFit.contain,
           height: 265,

@@ -3,13 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:one_profile/features/common/app_images.dart';
-import 'package:one_profile/features/l10n/app_localizations.dart';
+import 'package:one_profile/features/common/app_font.dart';
+import 'package:one_profile/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:one_profile/features/common/app_colors.dart';
 import 'package:one_profile/features/data/home_data.dart';
 import 'package:one_profile/features/presentation/home/home_screen_view_model.dart';
 import 'package:one_profile/features/presentation/routes/home_routes.dart';
-import 'package:one_profile/features/presentation/widgets/responsive_nav_bar.dart';
+import 'package:one_profile/features/presentation/widgets/app_bar_home_screen.dart';
 import 'package:one_profile/features/presentation/widgets/app_drawer.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -32,12 +33,13 @@ class HomeScreen extends StatelessWidget {
               children: [
                 //ลำดับการจัดวาง Widget
                 WelcomeBanner(),
+                SizedBox(height: 20),
                 SkillBanner(),
-                HistoryBanner(),
-                SpecialOffers(),
                 SizedBox(height: 20),
                 ApplicationDev(),
+                SpecialOffers(),
                 SizedBox(height: 20),
+                HistoryBanner(),
                 ContactBanner(),
               ],
             ),
@@ -116,20 +118,42 @@ class WelcomeBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.all(20),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-      child: Text.rich(
-        TextSpan(
-          style: const TextStyle(color: AppColors.primary_black),
-          children: [
-            TextSpan(
-              text:
-                  "${AppLocalizations.of(context)!.welcomeMessageToProfile}\n",
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      margin: const EdgeInsets.only(left: 20, right: 20, bottom: 0),
+      padding: const EdgeInsets.only(left: 12, right: 12, bottom: 0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(AppImages.profileImage, height: 90),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.text_name,
+                  style: AppFont.promptBodyLarge.copyWith(
+                    color: AppColors.primary_blue,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  AppLocalizations.of(context)!.text_position,
+                  style: AppFont.promptBodyMedium.copyWith(
+                    color: AppColors.primary_blue,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  AppLocalizations.of(context)!.text_location,
+                  style: AppFont.promptBodySmall.copyWith(
+                    color: AppColors.primary_blue,
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-        textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }
@@ -142,7 +166,7 @@ class SkillBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.all(20),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
         color: AppColors.primary_violet,
@@ -162,6 +186,54 @@ class SkillBanner extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ApplicationDev extends StatelessWidget {
+  const ApplicationDev({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final viewModel = context.read<HomeScreenViewModel>();
+    final popularProducts = viewModel.getPopularProducts();
+
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: SectionTitle(
+            title: AppLocalizations.of(context)!.applicationsDeveloped,
+            press: () =>
+                Navigator.of(context).pushNamed(AppRoutes.applicationDev),
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              ...List.generate(popularProducts.length, (index) {
+                return Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: ProductCard(
+                    product: popularProducts[index],
+                    onPress: () {
+                      if (index == 0) {
+                        Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.classTracking);
+                      } else {
+                        viewModel.onProductPressed(popularProducts[index]);
+                      }
+                    },
+                    isFirstProduct: index == 0,
+                  ),
+                );
+              }),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -375,55 +447,6 @@ class SectionTitle extends StatelessWidget {
   }
 }
 
-class ApplicationDev extends StatelessWidget {
-  const ApplicationDev({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final viewModel = context.read<HomeScreenViewModel>();
-    final popularProducts = viewModel.getPopularProducts();
-
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SectionTitle(
-            title: AppLocalizations.of(context)!.applicationsDeveloped,
-            press: () =>
-                Navigator.of(context).pushNamed(AppRoutes.applicationDev),
-          ),
-        ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              ...List.generate(popularProducts.length, (index) {
-                return Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: ProductCard(
-                    product: popularProducts[index],
-                    onPress: () {
-                      if (index == 0) {
-                        Navigator.of(
-                          context,
-                        ).pushNamed(AppRoutes.classTracking);
-                      } else {
-                        viewModel.onProductPressed(popularProducts[index]);
-                      }
-                    },
-                    isFirstProduct: index == 0,
-                  ),
-                );
-              }),
-              const SizedBox(width: 20),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
 class ProductCard extends StatelessWidget {
   const ProductCard({
     Key? key,
@@ -457,7 +480,7 @@ class ProductCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: isFirstProduct
-                    ? Image.asset(AppImages.classTracking)
+                    ? Image.asset(AppImages.classTrackingIcon)
                     : Image.network(product.images[0]),
               ),
             ),
