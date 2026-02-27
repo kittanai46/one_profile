@@ -67,4 +67,56 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get brands => 'Brands';
+
+  @override
+  String get appdescription => 'Digital Resume & Experience Showcase';
+
+  @override
+  String get classTrackingTitle => 'Class Tracking System';
+
+  @override
+  String get classTrackingDescription =>
+      'A comprehensive class management and tracking system designed to help educators and students keep track of attendance, grades, and course progress in real-time.';
+
+  @override
+  String get keyFeatures => 'Key Features';
+
+  @override
+  String get technologyStack => 'Technology Stack';
+
+  @override
+  String get projectStats => 'Project Stats';
+
+  @override
+  String get viewFullProject => 'View Full Project';
+
+  @override
+  String get yearStarted => 'Year Started';
+
+  @override
+  String get usersCount => 'Users';
+
+  @override
+  String get ratingLabel => 'Rating';
+
+  @override
+  String get github => 'GitHub';
+
+  @override
+  String get liveDemo => 'Live Demo';
+
+  @override
+  String get splash => 'Back to fist page';
+
+  @override
+  String get text_name => 'Mr.Kittanai Srikham (Kit)';
+
+  @override
+  String get text_position => 'Flutter developer';
+
+  @override
+  String get text_location => 'Currently at Bangkok';
+
+  @override
+  String get product01 => 'Class Tracking\nApplication';
 }

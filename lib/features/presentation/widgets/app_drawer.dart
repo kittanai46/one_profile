@@ -25,6 +25,14 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: const Icon(Icons.info),
+            title: Text(AppLocalizations.of(context)!.splash),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pushNamed(AppRoutes.splash);
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.language),
             title: Text(AppLocalizations.of(context)!.language),
             onTap: () {

@@ -3,13 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:one_profile/features/presentation/home/home_screen_page.dart';
 import 'package:one_profile/features/presentation/home/splash_screen_page.dart';
-import 'package:one_profile/features/presentation/home/application_dev/application_dev_screen_page.dart';
+import 'package:one_profile/features/presentation/home/achievement/achievement_screen_page.dart';
+import 'package:one_profile/features/presentation/home/achievement/achievement_list/classtracking_screen_page.dart';
 import 'package:one_profile/features/presentation/home/language_select_page.dart';
 
 class AppRoutes {
   static const String splash = '/splash';
   static const String home = '/home';
   static const String applicationDev = '/application_dev';
+  static const String classTracking = '/class_tracking';
   static const String languageSelect = '/language_select';
 }
 
@@ -36,6 +38,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const ProductsScreen(),
           settings: const RouteSettings(name: '/application_dev'),
+        );
+      case AppRoutes.classTracking:
+      case '/class_tracking':
+        return MaterialPageRoute(
+          builder: (_) => const ClassTrackingScreen(),
+          settings: const RouteSettings(name: '/class_tracking'),
         );
       case AppRoutes.languageSelect:
       case '/language_select':

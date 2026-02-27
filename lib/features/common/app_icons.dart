@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppIcons {
-  static const String homeIconSvg = 'lib/assets/icons/home.svg';
-  static const String searchIconSvg = 'lib/assets/icons/search.svg';
-  static const String settingsIconSvg = 'lib/assets/icons/settings.svg';
-  static const String profileIconSvg = 'lib/assets/icons/profile.svg';
-  static const String walletIconSvg = 'lib/assets/icons/wallet.svg';
-
   // Material Design Icons - Navigation
   static const IconData home = Icons.home;
   static const IconData search = Icons.search;

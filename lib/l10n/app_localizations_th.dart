@@ -33,7 +33,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get logout => 'ออกจากระบบ';
 
   @override
-  String get welcomeMessageToProfile => 'ยินดีต้อนรับสู่ประวัติส่วนตัวของฉัน';
+  String get welcomeMessageToProfile => 'นายกฤตดนัย ศรีคำ';
 
   @override
   String get skillsAbilities => 'ทักษะและความสามารถ';
@@ -54,7 +54,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get seeMore => 'ดูเพิ่มเติม';
 
   @override
-  String get applicationsDeveloped => 'แอปพลิเคชันที่เคย/ร่วมพัฒนา';
+  String get applicationsDeveloped => 'ผลงานที่ผ่านมา';
 
   @override
   String get contactChannels => 'ช่องทางการติดต่อ';
@@ -67,4 +67,56 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get brands => 'Brands';
+
+  @override
+  String get appdescription => 'Digital Resume & Experience Showcase';
+
+  @override
+  String get classTrackingTitle => 'ระบบติดตามชั้นเรียน';
+
+  @override
+  String get classTrackingDescription =>
+      'ระบบจัดการและติดตามชั้นเรียนที่ครอบคลุม ออกแบบมาเพื่อช่วยให้ครูและนักเรียนติดตามการเข้าเรียน คะแนน และความคืบหน้าของหลักสูตรแบบเรียลไทม์';
+
+  @override
+  String get keyFeatures => 'คุณลักษณะที่สำคัญ';
+
+  @override
+  String get technologyStack => 'สแต็กเทคโนโลยี';
+
+  @override
+  String get projectStats => 'สถิติโครงการ';
+
+  @override
+  String get viewFullProject => 'ดูโครงการทั้งหมด';
+
+  @override
+  String get yearStarted => 'ปีที่เริ่มต้น';
+
+  @override
+  String get usersCount => 'ผู้ใช้';
+
+  @override
+  String get ratingLabel => 'คะแนน';
+
+  @override
+  String get github => 'GitHub';
+
+  @override
+  String get liveDemo => 'Live Demo';
+
+  @override
+  String get splash => 'กลับไปหน้าแรก';
+
+  @override
+  String get text_name => 'นายกฤตดนัย ศรีคำ (กิต)';
+
+  @override
+  String get text_position => 'ตำแหน่ง: Flutter developer';
+
+  @override
+  String get text_location => 'ปัจจุบันอยู่ที่: กรุงเทพฯ/แขวงรัชดาภิเษก';
+
+  @override
+  String get product01 => 'Class Tracking\nแอปพลิเคชัน';
 }

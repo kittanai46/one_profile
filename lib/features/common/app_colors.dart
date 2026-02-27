@@ -8,6 +8,7 @@ class AppColors {
   static const Color primary_accent = Color(0xFFFF7643);
   static const Color primary_red = Color(0xFFFF4848);
   static const Color primary_black = Color(0xFF000000);
+  static const Color primary_blue = Color(0xFF1053A1);
 
   // Neutral colors
   static const Color grey = Color(0xFF979797);
