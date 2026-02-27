@@ -314,11 +314,11 @@ abstract class AppLocalizations {
   /// **'Currently at Bangkok'**
   String get text_location;
 
-  /// No description provided for @product01.
+  /// No description provided for @iteam_01.
   ///
   /// In en, this message translates to:
   /// **'Class Tracking\nApplication'**
-  String get product01;
+  String get iteam_01;
 }
 
 class _AppLocalizationsDelegate

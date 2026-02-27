@@ -38,7 +38,9 @@ class HomeScreenViewModel extends ChangeNotifier {
   }
 
   // Get popular products with localization
-  void _initializePopularProductsWithLocalization(AppLocalizations localizations) {
+  void _initializePopularProductsWithLocalization(
+    AppLocalizations localizations,
+  ) {
     final allProducts = getDemoProducts(localizations);
     popularProducts = allProducts
         .where((product) => product.isPopular)
@@ -66,6 +68,7 @@ class HomeScreenViewModel extends ChangeNotifier {
     // Handle product navigation or action
     debugPrint('Product ${product.title} pressed');
   }
+
   // On search
   void onSearch(String query) {
     // Handle search logic

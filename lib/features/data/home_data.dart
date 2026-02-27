@@ -87,7 +87,7 @@ List<Product> getDemoProducts(AppLocalizations localizations) => [
       AppColors.productColor3,
       Colors.white,
     ],
-    title: localizations.product01,
+    title: localizations.iteam_01,
     description: description,
     isPopular: true,
   ),
