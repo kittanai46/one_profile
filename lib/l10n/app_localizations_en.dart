@@ -119,4 +119,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get iteam_01 => 'Class Tracking\nApplication';
+
+  @override
+  String get iteam_02 => 'WPF Desktop Application';
+
+  @override
+  String get iteam_03 => 'Automation\nTestcase';
+
+  @override
+  String get iteam_04 => 'BackOffice';
 }

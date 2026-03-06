@@ -37,5 +37,15 @@
   "text_position":"Flutter developer",
   "text_location":"Currently at Bangkok",
 
-  "iteam_01":"Class Tracking\nApplication"
+  "iteam_01":"Class Tracking\nApplication",
+
+
+  "iteam_02":"WPF Desktop Application",
+
+  "iteam_03":"Automation\nTestcase",
+
+  "iteam_04":"BackOffice"
+
+  
+
 }

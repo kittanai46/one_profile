@@ -319,6 +319,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Class Tracking\nApplication'**
   String get iteam_01;
+
+  /// No description provided for @iteam_02.
+  ///
+  /// In en, this message translates to:
+  /// **'WPF Desktop Application'**
+  String get iteam_02;
+
+  /// No description provided for @iteam_03.
+  ///
+  /// In en, this message translates to:
+  /// **'Automation\nTestcase'**
+  String get iteam_03;
+
+  /// No description provided for @iteam_04.
+  ///
+  /// In en, this message translates to:
+  /// **'BackOffice'**
+  String get iteam_04;
 }
 
 class _AppLocalizationsDelegate

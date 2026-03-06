@@ -2,17 +2,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:one_profile/features/presentation/home/home_screen_page.dart';
-import 'package:one_profile/features/presentation/home/splash_screen_page.dart';
-import 'package:one_profile/features/presentation/home/achievement/achievement_screen_page.dart';
-import 'package:one_profile/features/presentation/home/achievement/achievement_list/classtracking_screen_page.dart';
-import 'package:one_profile/features/presentation/home/language_select_page.dart';
+import 'package:one_profile/features/presentation/home/hamberger/splash_screen_page.dart';
+import 'package:one_profile/features/presentation/home/workpiece/class_tracking/class_tracking_screen_page.dart';
+import 'package:one_profile/features/presentation/home/hamberger/language_select_page.dart';
+import 'package:one_profile/features/presentation/home/resume/resume_screen_page.dart';
 
 class AppRoutes {
   static const String splash = '/splash';
   static const String home = '/home';
-  static const String applicationDev = '/application_dev';
+  static const String WorkPiece = '/application_dev';
   static const String classTracking = '/class_tracking';
   static const String languageSelect = '/language_select';
+  static const String resume = '/resume';
 }
 
 class AppRouter {
@@ -33,12 +34,6 @@ class AppRouter {
           builder: (_) => const HomeScreen(),
           settings: const RouteSettings(name: '/home'),
         );
-      case AppRoutes.applicationDev:
-      case '/application_dev':
-        return MaterialPageRoute(
-          builder: (_) => const ProductsScreen(),
-          settings: const RouteSettings(name: '/application_dev'),
-        );
       case AppRoutes.classTracking:
       case '/class_tracking':
         return MaterialPageRoute(
@@ -50,6 +45,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const LanguageSelectPage(),
           settings: const RouteSettings(name: '/language_select'),
+        );
+      case AppRoutes.resume:
+      case '/resume':
+        return MaterialPageRoute(
+          builder: (_) => const ResumeScreen(),
+          settings: const RouteSettings(name: '/resume'),
         );
       default:
         return MaterialPageRoute(
