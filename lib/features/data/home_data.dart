@@ -1,6 +1,7 @@
 // Home Screen SVG Icons and Constants
 import 'package:flutter/material.dart';
 import 'package:one_profile/features/common/app_colors.dart';
+import 'package:one_profile/features/common/app_images.dart';
 import 'package:one_profile/l10n/app_localizations.dart';
 
 const String description = "Class Tracking";
@@ -48,8 +49,8 @@ const bellIcon =
 ''';
 
 // Special Offers Images
-const specialOfferImage1 = "https://i.postimg.cc/yY2bNrmd/Image-Banner-2.png";
-const specialOfferImage2 = "https://i.postimg.cc/BQjz4G1k/Image-Banner-3.png";
+const specialOfferImage1 = "assets/images/image_banner_2.png";
+const specialOfferImage2 = AppImages.tesaTopgunIcon;
 
 // Product Images
 const productImage1 =
@@ -64,23 +65,23 @@ class Product {
   final String title, description;
   final List<String> images;
   final List<Color> colors;
-  final bool isPopular;
+  final bool isShow;
 
   Product({
     required this.id,
     required this.images,
     required this.colors,
-    this.isPopular = false,
+    this.isShow = false,
     required this.title,
     required this.description,
   });
 }
 
 // Demo Products List
-List<Product> getDemoProducts(AppLocalizations localizations) => [
+List<Product> getWorkpiece(AppLocalizations localizations) => [
   Product(
     id: 1,
-    images: [productImage1],
+    images: [AppImages.classTrackingIcon],
     colors: [
       AppColors.productColor1,
       AppColors.productColor2,
@@ -89,32 +90,45 @@ List<Product> getDemoProducts(AppLocalizations localizations) => [
     ],
     title: localizations.iteam_01,
     description: description,
-    isPopular: true,
+    isShow: true,
   ),
   Product(
     id: 2,
-    images: [productImage2],
+    images: [AppImages.wpfIcon],
     colors: [
       AppColors.productColor1,
       AppColors.productColor2,
       AppColors.productColor3,
       Colors.white,
     ],
-    title: "Nike Sport White - Man Pant",
+    title: localizations.iteam_02,
     description: description,
-    isPopular: true,
+    isShow: true,
   ),
   Product(
     id: 3,
-    images: [productImage3],
+    images: [AppImages.automationIcon],
     colors: [
       AppColors.productColor1,
       AppColors.productColor2,
       AppColors.productColor3,
       Colors.white,
     ],
-    title: "Gloves XC Omega - Polygon",
+    title: localizations.iteam_03,
     description: description,
-    isPopular: true,
+    isShow: true,
+  ),
+  Product(
+    id: 4,
+    images: [AppImages.backofficeIcon],
+    colors: [
+      AppColors.productColor1,
+      AppColors.productColor2,
+      AppColors.productColor3,
+      Colors.white,
+    ],
+    title: localizations.iteam_04,
+    description: description,
+    isShow: true,
   ),
 ];

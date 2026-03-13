@@ -9,42 +9,18 @@ class HomeScreenViewModel extends ChangeNotifier {
   // Products
   List<Product> popularProducts = [];
 
-  // Constructor
-  HomeScreenViewModel() {
-    _initializeData();
-  }
-
   // Initialize data with localization
   void initializeDataWithLocalization(AppLocalizations localizations) {
-    _initializeCategories();
     _initializePopularProductsWithLocalization(localizations);
     notifyListeners();
-  }
-
-  // Initialize data
-  void _initializeData() {
-    _initializeCategories();
-  }
-
-  // Initialize categories
-  void _initializeCategories() {
-    categories = [
-      {"icon": flashIcon, "text": "Flash Deal"},
-      {"icon": billIcon, "text": "Bill"},
-      {"icon": gameIcon, "text": "Game"},
-      {"icon": giftIcon, "text": "Daily Gift"},
-      {"icon": discoverIcon, "text": "More"},
-    ];
   }
 
   // Get popular products with localization
   void _initializePopularProductsWithLocalization(
     AppLocalizations localizations,
   ) {
-    final allProducts = getDemoProducts(localizations);
-    popularProducts = allProducts
-        .where((product) => product.isPopular)
-        .toList();
+    final allProducts = getWorkpiece(localizations);
+    popularProducts = allProducts.where((product) => product.isShow).toList();
   }
 
   // Get all categories

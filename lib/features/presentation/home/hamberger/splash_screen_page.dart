@@ -1,7 +1,7 @@
 // ignore_for_file: use_super_parameters
 
 import 'package:flutter/material.dart';
-import '../../data/splash_data.dart';
+import '../../../data/splash_data.dart';
 import 'package:one_profile/services/app_preferences.dart';
 import 'package:one_profile/features/common/app_colors.dart';
 import 'package:one_profile/features/common/app_font.dart';

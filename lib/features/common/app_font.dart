@@ -68,6 +68,11 @@ class AppFont {
     fontWeight: FontWeight.normal,
   );
 
+  static TextStyle promptBodyBoldTitle = GoogleFonts.prompt(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
+
   static TextStyle promptBodyLarge = GoogleFonts.prompt(
     fontSize: 16,
     fontWeight: FontWeight.normal,

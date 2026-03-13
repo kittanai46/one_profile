@@ -13,6 +13,7 @@ import 'package:one_profile/features/presentation/home/home_screen_view_model.da
 import 'package:one_profile/features/presentation/routes/home_routes.dart';
 import 'package:one_profile/features/presentation/widgets/app_bar_home_screen.dart';
 import 'package:one_profile/features/presentation/widgets/app_drawer.dart';
+import 'package:one_profile/features/presentation/home/workpiece/work_piece_screen_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -44,12 +45,11 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: Column(
                       children: [
-                        //ลำดับการจัดวาง Widget
                         const WelcomeBanner(),
                         const SizedBox(height: 25),
                         const SkillBanner(),
                         const SizedBox(height: 20),
-                        const ApplicationDev(),
+                        const WorkPiece(),
                         const SizedBox(height: 20),
                         const SpecialOffers(),
                         const SizedBox(height: 20),
@@ -154,6 +154,7 @@ class WelcomeBanner extends StatelessWidget {
                     color: AppColors.primary_blue,
                     fontWeight: FontWeight.bold,
                   ),
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -161,6 +162,7 @@ class WelcomeBanner extends StatelessWidget {
                   style: AppFont.promptBodyMedium.copyWith(
                     color: AppColors.primary_blue,
                   ),
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -168,6 +170,7 @@ class WelcomeBanner extends StatelessWidget {
                   style: AppFont.promptBodySmall.copyWith(
                     color: AppColors.primary_blue,
                   ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
@@ -183,78 +186,36 @@ class SkillBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-      decoration: BoxDecoration(
-        color: AppColors.primary_violet,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text.rich(
-        TextSpan(
-          style: const TextStyle(color: Colors.white),
-          children: [
-            TextSpan(
-              text: "${AppLocalizations.of(context)!.skillsAbilities}\n",
-            ),
-            TextSpan(
-              text: AppLocalizations.of(context)!.resumeCv,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(AppRoutes.resume);
+      },
+      child: Container(
+        width: double.infinity,
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        decoration: BoxDecoration(
+          color: AppColors.primary_violet,
+          borderRadius: BorderRadius.circular(20),
         ),
-      ),
-    );
-  }
-}
-
-class ApplicationDev extends StatelessWidget {
-  const ApplicationDev({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SectionTitle(
-            title: AppLocalizations.of(context)!.applicationsDeveloped,
-            press: () =>
-                Navigator.of(context).pushNamed(AppRoutes.applicationDev),
+        child: Text.rich(
+          TextSpan(
+            style: const TextStyle(color: Colors.white),
+            children: [
+              TextSpan(
+                text: "${AppLocalizations.of(context)!.skillsAbilities}\n",
+              ),
+              TextSpan(
+                text: AppLocalizations.of(context)!.resumeCv,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
         ),
-        Consumer<HomeScreenViewModel>(
-          builder: (context, viewModel, _) {
-            final popularProducts = viewModel.getPopularProducts();
-            return SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  ...List.generate(popularProducts.length, (index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: ProductCard(
-                        product: popularProducts[index],
-                        onPress: () {
-                          if (index == 0) {
-                            Navigator.of(
-                              context,
-                            ).pushNamed(AppRoutes.classTracking);
-                          } else {
-                            viewModel.onProductPressed(popularProducts[index]);
-                          }
-                        },
-                        isFirstProduct: index == 0,
-                      ),
-                    );
-                  }),
-                ],
-              ),
-            );
-          },
-        ),
-      ],
+      ),
     );
   }
 }
@@ -344,7 +305,7 @@ class SpecialOffers extends StatelessWidget {
           child: Row(
             children: [
               SpecialOfferCard(
-                image: specialOfferImage1,
+                image: AppImages.tesaTopgunIcon,
                 category: AppLocalizations.of(context)!.smartphoneCategory,
                 numOfBrands: 18,
                 press: () => viewModel.onSpecialOfferPressed(0),
@@ -390,7 +351,7 @@ class SpecialOfferCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             child: Stack(
               children: [
-                Image.network(image, fit: BoxFit.cover),
+                Image.asset(image, fit: BoxFit.cover),
                 Container(
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -432,86 +393,6 @@ class SpecialOfferCard extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class SectionTitle extends StatelessWidget {
-  const SectionTitle({Key? key, required this.title, required this.press})
-    : super(key: key);
-
-  final String title;
-  final GestureTapCallback press;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
-          ),
-        ),
-        TextButton(
-          onPressed: press,
-          style: TextButton.styleFrom(foregroundColor: Colors.grey),
-          child: Text(AppLocalizations.of(context)!.seeMore),
-        ),
-      ],
-    );
-  }
-}
-
-class ProductCard extends StatelessWidget {
-  const ProductCard({
-    Key? key,
-    this.width = 140,
-    this.aspectRetio = 1.02,
-    required this.product,
-    required this.onPress,
-    this.isFirstProduct = false,
-  }) : super(key: key);
-
-  final double width, aspectRetio;
-  final Product product;
-  final VoidCallback onPress;
-  final bool isFirstProduct;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      child: GestureDetector(
-        onTap: onPress,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AspectRatio(
-              aspectRatio: 1.02,
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: AppColors.grey.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: isFirstProduct
-                    ? Image.asset(AppImages.classTrackingIcon)
-                    : Image.network(product.images[0]),
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              product.title,
-              style: Theme.of(context).textTheme.bodyMedium,
-              maxLines: 2,
-            ),
-          ],
         ),
       ),
     );
