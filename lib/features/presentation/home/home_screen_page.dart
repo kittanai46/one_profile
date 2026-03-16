@@ -1,14 +1,15 @@
 // ignore_for_file: use_super_parameters, deprecated_member_use
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:one_profile/features/common/app_images.dart';
 import 'package:one_profile/features/common/app_font.dart';
+import 'package:one_profile/features/data/contact_data.dart';
 import 'package:one_profile/l10n/app_localizations.dart';
 import 'package:one_profile/l10n/locale_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:one_profile/features/common/app_colors.dart';
-import 'package:one_profile/features/data/home_data.dart';
 import 'package:one_profile/features/presentation/home/home_screen_view_model.dart';
 import 'package:one_profile/features/presentation/routes/home_routes.dart';
 import 'package:one_profile/features/presentation/widgets/app_bar_home_screen.dart';
@@ -54,7 +55,6 @@ class HomeScreen extends StatelessWidget {
                         const SpecialOffers(),
                         const SizedBox(height: 20),
                         const HistoryBanner(),
-                        const SizedBox(height: 20),
                         const ContactBanner(),
                       ],
                     ),
@@ -284,8 +284,44 @@ class CategoryCard extends StatelessWidget {
   }
 }
 
-class SpecialOffers extends StatelessWidget {
+class SpecialOffers extends StatefulWidget {
   const SpecialOffers({Key? key}) : super(key: key);
+
+  @override
+  State<SpecialOffers> createState() => _SpecialOffersState();
+}
+
+class _SpecialOffersState extends State<SpecialOffers> {
+  late PageController _pageController;
+  int _currentPage = 0;
+  late Timer _autoScrollTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(viewportFraction: 0.85);
+    _startAutoScroll();
+  }
+
+  void _startAutoScroll() {
+    _autoScrollTimer = Timer.periodic(const Duration(seconds: 4), (timer) {
+      if (mounted) {
+        _currentPage = (_currentPage + 1) % 3;
+        _pageController.animateToPage(
+          _currentPage,
+          duration: const Duration(milliseconds: 800),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _autoScrollTimer.cancel();
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -300,24 +336,68 @@ class SpecialOffers extends StatelessWidget {
             press: () {},
           ),
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
+        SizedBox(
+          height: 130,
+          child: PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() {
+                _currentPage = index;
+              });
+            },
             children: [
-              SpecialOfferCard(
-                image: AppImages.tesaTopgunIcon,
-                category: AppLocalizations.of(context)!.smartphoneCategory,
-                numOfBrands: 18,
-                press: () => viewModel.onSpecialOfferPressed(0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: SpecialOfferCard(
+                  image: AppImages.tesaTopgunIcon,
+                  eventtitle: AppLocalizations.of(context)!.tesaTopgunTitle,
+                  subevent: AppLocalizations.of(context)!.tesaTopgunSubTitle,
+                  press: () => viewModel.onSpecialOfferPressed(0),
+                ),
               ),
-              SpecialOfferCard(
-                image: specialOfferImage2,
-                category: AppLocalizations.of(context)!.fashionCategory,
-                numOfBrands: 24,
-                press: () => viewModel.onSpecialOfferPressed(1),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: SpecialOfferCard(
+                  image: AppImages.popularVoteIcon,
+                  eventtitle: AppLocalizations.of(context)!.popularVoteTitle,
+                  subevent: AppLocalizations.of(context)!.popularVoteSubTitle,
+                  press: () => viewModel.onSpecialOfferPressed(1),
+                ),
               ),
-              const SizedBox(width: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: SpecialOfferCard(
+                  image: AppImages.eventPoliceCareIcon,
+                  eventtitle: AppLocalizations.of(
+                    context,
+                  )!.eventPoliceCareTitle,
+                  subevent: AppLocalizations.of(
+                    context,
+                  )!.eventPoliceCareSubTitle,
+                  press: () => viewModel.onSpecialOfferPressed(2),
+                ),
+              ),
             ],
+          ),
+        ),
+        const SizedBox(height: 16),
+        // Dot indicators
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(
+            3,
+            (index) => AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              margin: const EdgeInsets.symmetric(horizontal: 4),
+              height: 8,
+              width: _currentPage == index ? 24 : 8,
+              decoration: BoxDecoration(
+                color: _currentPage == index
+                    ? AppColors.primary_violet
+                    : AppColors.grey.withOpacity(0.3),
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
           ),
         ),
       ],
@@ -328,71 +408,58 @@ class SpecialOffers extends StatelessWidget {
 class SpecialOfferCard extends StatelessWidget {
   const SpecialOfferCard({
     Key? key,
-    required this.category,
+    required this.eventtitle,
     required this.image,
-    required this.numOfBrands,
+    required this.subevent,
     required this.press,
   }) : super(key: key);
 
-  final String category, image;
-  final int numOfBrands;
+  final String eventtitle, image;
+  final String subevent;
   final GestureTapCallback press;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20),
-      child: GestureDetector(
-        onTap: press,
-        child: SizedBox(
-          width: 242,
-          height: 100,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Stack(
-              children: [
-                Image.asset(image, fit: BoxFit.cover),
-                Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.black54,
-                        Colors.black38,
-                        Colors.black26,
-                        Colors.transparent,
-                      ],
-                    ),
-                  ),
+    return GestureDetector(
+      onTap: press,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Stack(
+          children: [
+            Image.asset(image, fit: BoxFit.cover, width: double.infinity),
+            Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.black54,
+                    Colors.black38,
+                    Colors.black26,
+                    Colors.transparent,
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 10,
-                  ),
-                  child: Text.rich(
-                    TextSpan(
-                      style: const TextStyle(color: Colors.white),
-                      children: [
-                        TextSpan(
-                          text: "$category\n",
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "$numOfBrands ${AppLocalizations.of(context)!.brands}",
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              child: Text.rich(
+                TextSpan(
+                  style: const TextStyle(color: Colors.white),
+                  children: [
+                    TextSpan(
+                      text: "$eventtitle\n",
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(text: subevent, style: AppFont.promptBodySmall),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -406,23 +473,116 @@ class ContactBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.all(20),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      margin: const EdgeInsets.all(15),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
       decoration: BoxDecoration(
         color: AppColors.primary_violet,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary_violet.withOpacity(0.3),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
-      child: Text.rich(
-        TextSpan(
-          style: const TextStyle(color: Colors.white),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AppLocalizations.of(context)!.contactChannels,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            "Get in Touch",
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 20),
+          ...ContactDataManager.contactItems.map(
+            (contact) => Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: _buildContactItem(
+                context: context,
+                iconPath: contact.iconPath,
+                titleKey: contact.titleKey,
+                valueKey: contact.valueKey,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildContactItem({
+    required BuildContext context,
+    required String iconPath,
+    required String titleKey,
+    required String valueKey,
+  }) {
+    final localizations = AppLocalizations.of(context)!;
+    final title = _getLocalizedValue(localizations, titleKey);
+    final value = _getLocalizedValue(localizations, valueKey);
+
+    return Row(
+      children: [
+        SizedBox(width: 24, height: 24, child: Image.asset(iconPath)),
+        const SizedBox(width: 12),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextSpan(
-              text: AppLocalizations.of(context)!.contactChannels,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Text(
+              title,
+              style: const TextStyle(
+                color: Colors.white70,
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              value,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ],
         ),
-      ),
+      ],
     );
+  }
+
+  String _getLocalizedValue(AppLocalizations localizations, String key) {
+    switch (key) {
+      case "email":
+        return localizations.email;
+      case "contactGmail":
+        return localizations.contactGmail;
+      case "phone":
+        return localizations.phone;
+      case "contactPhone":
+        return localizations.contactPhone;
+      case "line":
+        return localizations.line;
+      case "contactLineid":
+        return localizations.contactLineid;
+      case "github":
+        return localizations.github;
+      case "contactGithub":
+        return localizations.contactGithub;
+      default:
+        return key;
+    }
   }
 }

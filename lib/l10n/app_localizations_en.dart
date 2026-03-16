@@ -100,7 +100,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ratingLabel => 'Rating';
 
   @override
-  String get github => 'GitHub';
+  String get github => 'Github';
 
   @override
   String get liveDemo => 'Live Demo';
@@ -128,4 +128,44 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get iteam_04 => 'BackOffice';
+
+  @override
+  String get tesaTopgunTitle => 'TesaTopGun 2022';
+
+  @override
+  String get tesaTopgunSubTitle =>
+      'The 16th Thailand Embedded Systems Skills Competition.';
+
+  @override
+  String get popularVoteTitle => 'PopPularVote 2024';
+
+  @override
+  String get popularVoteSubTitle => 'Popular Vote Award, ICT Open House';
+
+  @override
+  String get eventPoliceCareTitle => 'PoliceCare 2026';
+
+  @override
+  String get eventPoliceCareSubTitle => 'PoliceCare Application Promotion';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get contactGmail => 'k.kittanai46@gmail.com';
+
+  @override
+  String get line => 'LineID';
+
+  @override
+  String get contactLineid => 'kittanai2003';
+
+  @override
+  String get phone => 'Call';
+
+  @override
+  String get contactPhone => '061-4852560';
+
+  @override
+  String get contactGithub => 'kittanai46';
 }

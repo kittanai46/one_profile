@@ -44,8 +44,22 @@
 
   "iteam_03":"Automation\nTestcase",
 
-  "iteam_04":"BackOffice"
+  "iteam_04":"BackOffice",
 
-  
+  "tesaTopgunTitle":"TesaTopGun 2022",
+  "tesaTopgunSubTitle":"The 16th Thailand Embedded Systems Skills Competition.",
+  "popularVoteTitle":"PopPularVote 2024",
+  "popularVoteSubTitle":"Popular Vote Award, ICT Open House",
+  "eventPoliceCareTitle":"PoliceCare 2026",
+  "eventPoliceCareSubTitle":"PoliceCare Application Promotion",
+
+  "email":"Email",
+  "contactGmail":"k.kittanai46@gmail.com",
+  "line":"LineID",
+  "contactLineid":"kittanai2003",
+  "phone":"Call",
+  "contactPhone":"061-4852560",
+  "github":"Github",
+  "contactGithub":"kittanai46"
 
 }

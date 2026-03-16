@@ -281,7 +281,7 @@ abstract class AppLocalizations {
   /// No description provided for @github.
   ///
   /// In en, this message translates to:
-  /// **'GitHub'**
+  /// **'Github'**
   String get github;
 
   /// No description provided for @liveDemo.
@@ -337,6 +337,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'BackOffice'**
   String get iteam_04;
+
+  /// No description provided for @tesaTopgunTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'TesaTopGun 2022'**
+  String get tesaTopgunTitle;
+
+  /// No description provided for @tesaTopgunSubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The 16th Thailand Embedded Systems Skills Competition.'**
+  String get tesaTopgunSubTitle;
+
+  /// No description provided for @popularVoteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'PopPularVote 2024'**
+  String get popularVoteTitle;
+
+  /// No description provided for @popularVoteSubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular Vote Award, ICT Open House'**
+  String get popularVoteSubTitle;
+
+  /// No description provided for @eventPoliceCareTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'PoliceCare 2026'**
+  String get eventPoliceCareTitle;
+
+  /// No description provided for @eventPoliceCareSubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'PoliceCare Application Promotion'**
+  String get eventPoliceCareSubTitle;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @contactGmail.
+  ///
+  /// In en, this message translates to:
+  /// **'k.kittanai46@gmail.com'**
+  String get contactGmail;
+
+  /// No description provided for @line.
+  ///
+  /// In en, this message translates to:
+  /// **'LineID'**
+  String get line;
+
+  /// No description provided for @contactLineid.
+  ///
+  /// In en, this message translates to:
+  /// **'kittanai2003'**
+  String get contactLineid;
+
+  /// No description provided for @phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Call'**
+  String get phone;
+
+  /// No description provided for @contactPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'061-4852560'**
+  String get contactPhone;
+
+  /// No description provided for @contactGithub.
+  ///
+  /// In en, this message translates to:
+  /// **'kittanai46'**
+  String get contactGithub;
 }
 
 class _AppLocalizationsDelegate

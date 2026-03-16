@@ -1,5 +1,6 @@
 // ignore_for_file: use_super_parameters, deprecated_member_use
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:one_profile/features/common/app_colors.dart';
 import 'package:one_profile/features/common/app_font.dart';
@@ -11,8 +12,47 @@ import 'package:one_profile/features/presentation/routes/home_routes.dart';
 import 'package:one_profile/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-class WorkPiece extends StatelessWidget {
+class WorkPiece extends StatefulWidget {
   const WorkPiece({super.key});
+
+  @override
+  State<WorkPiece> createState() => _WorkPieceState();
+}
+
+class _WorkPieceState extends State<WorkPiece> {
+  late ScrollController _scrollController;
+  late Timer _autoScrollTimer;
+  double _scrollPosition = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    _startAutoScroll();
+  }
+
+  void _startAutoScroll() {
+    _autoScrollTimer = Timer.periodic(const Duration(seconds: 6), (timer) {
+      if (mounted && _scrollController.hasClients) {
+        _scrollPosition += 200;
+        if (_scrollPosition > _scrollController.position.maxScrollExtent) {
+          _scrollPosition = 0;
+        }
+        _scrollController.animateTo(
+          _scrollPosition,
+          duration: const Duration(milliseconds: 800),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _autoScrollTimer.cancel();
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +71,7 @@ class WorkPiece extends StatelessWidget {
             builder: (context, homeViewModel, workPieceViewModel, _) {
               final popularProducts = homeViewModel.getPopularProducts();
               return SingleChildScrollView(
+                controller: _scrollController,
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
@@ -76,10 +117,7 @@ class SectionTitle extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          title,
-          style: AppFont.promptBodyBoldTitle,
-        ),
+        Text(title, style: AppFont.promptBodyBoldTitle),
         TextButton(
           onPressed: press,
           style: TextButton.styleFrom(foregroundColor: Colors.grey),
