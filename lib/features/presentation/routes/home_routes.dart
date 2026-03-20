@@ -10,7 +10,7 @@ import 'package:one_profile/features/presentation/home/resume/resume_screen_page
 class AppRoutes {
   static const String splash = '/splash';
   static const String home = '/home';
-  static const String WorkPiece = '/application_dev';
+  static const String workPiece = '/application_dev';
   static const String classTracking = '/class_tracking';
   static const String languageSelect = '/language_select';
   static const String resume = '/resume';

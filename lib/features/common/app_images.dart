@@ -20,8 +20,14 @@ class AppImages {
       'assets/images/event_policecare.png';
 
   // contact
-  static const String githubIcon = 'assets/images/github_icon.png';
-  static const String lineIcon = 'assets/images/line_icon.png';
-  static const String gmailIcon = 'assets/images/gmail_icon.png';
-  static const String phoneIcon = 'assets/images/phone_icon.png';
+  static const String contactIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/contact/contact.gif';
+  static const String qrCodeScanIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/contact/qrcode_scan.gif';
+  static const String githubIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/contact/github_icon.png';
+  static const String lineIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/contact/line_icon.png';
+  static const String gmailIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/contact/gmail_icon.png';
+  static const String phoneIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/contact/phone_icon.png';
+  static const String linkedinIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/contact/linkedin_logo.jpeg';
+  static const String lineQRCode = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/contact/qrcode/line_qrcode.jpg';
+  static const String githubQRCode = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/contact/qrcode/github_qrcode.png';
+  static const String linkedinQRCode = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/contact/qrcode/linkedin_qrcode.png';
 }

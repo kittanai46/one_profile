@@ -100,7 +100,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ratingLabel => 'Rating';
 
   @override
-  String get github => 'Github';
+  String get github => 'GitHub';
 
   @override
   String get liveDemo => 'Live Demo';
@@ -168,4 +168,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get contactGithub => 'kittanai46';
+
+  @override
+  String get linkedin => 'Linkedin';
+
+  @override
+  String get contactLinkedin => 'Kittanai Srikham';
+
+  @override
+  String get copied => 'copied to clipboard';
 }

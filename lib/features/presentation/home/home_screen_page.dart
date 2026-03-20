@@ -1,6 +1,5 @@
 // ignore_for_file: use_super_parameters, deprecated_member_use
 
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:one_profile/features/common/app_images.dart';
@@ -284,49 +283,11 @@ class CategoryCard extends StatelessWidget {
   }
 }
 
-class SpecialOffers extends StatefulWidget {
+class SpecialOffers extends StatelessWidget {
   const SpecialOffers({Key? key}) : super(key: key);
 
   @override
-  State<SpecialOffers> createState() => _SpecialOffersState();
-}
-
-class _SpecialOffersState extends State<SpecialOffers> {
-  late PageController _pageController;
-  int _currentPage = 0;
-  late Timer _autoScrollTimer;
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(viewportFraction: 0.85);
-    _startAutoScroll();
-  }
-
-  void _startAutoScroll() {
-    _autoScrollTimer = Timer.periodic(const Duration(seconds: 4), (timer) {
-      if (mounted) {
-        _currentPage = (_currentPage + 1) % 3;
-        _pageController.animateToPage(
-          _currentPage,
-          duration: const Duration(milliseconds: 800),
-          curve: Curves.easeInOut,
-        );
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    _autoScrollTimer.cancel();
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final viewModel = context.read<HomeScreenViewModel>();
-
     return Column(
       children: [
         Padding(
@@ -338,67 +299,73 @@ class _SpecialOffersState extends State<SpecialOffers> {
         ),
         SizedBox(
           height: 130,
-          child: PageView(
-            controller: _pageController,
-            onPageChanged: (index) {
-              setState(() {
-                _currentPage = index;
-              });
+          child: Consumer<HomeScreenViewModel>(
+            builder: (context, viewModel, _) {
+              return PageView(
+                controller: viewModel.pageController,
+                onPageChanged: (index) {
+                  viewModel.updateCurrentPage(index);
+                },
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: SpecialOfferCard(
+                      image: AppImages.tesaTopgunIcon,
+                      eventtitle: AppLocalizations.of(context)!.tesaTopgunTitle,
+                      subevent: AppLocalizations.of(context)!.tesaTopgunSubTitle,
+                      press: () => viewModel.onSpecialOfferPressed(0),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: SpecialOfferCard(
+                      image: AppImages.popularVoteIcon,
+                      eventtitle: AppLocalizations.of(context)!.popularVoteTitle,
+                      subevent: AppLocalizations.of(context)!.popularVoteSubTitle,
+                      press: () => viewModel.onSpecialOfferPressed(1),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: SpecialOfferCard(
+                      image: AppImages.eventPoliceCareIcon,
+                      eventtitle: AppLocalizations.of(
+                        context,
+                      )!.eventPoliceCareTitle,
+                      subevent: AppLocalizations.of(
+                        context,
+                      )!.eventPoliceCareSubTitle,
+                      press: () => viewModel.onSpecialOfferPressed(2),
+                    ),
+                  ),
+                ],
+              );
             },
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: SpecialOfferCard(
-                  image: AppImages.tesaTopgunIcon,
-                  eventtitle: AppLocalizations.of(context)!.tesaTopgunTitle,
-                  subevent: AppLocalizations.of(context)!.tesaTopgunSubTitle,
-                  press: () => viewModel.onSpecialOfferPressed(0),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: SpecialOfferCard(
-                  image: AppImages.popularVoteIcon,
-                  eventtitle: AppLocalizations.of(context)!.popularVoteTitle,
-                  subevent: AppLocalizations.of(context)!.popularVoteSubTitle,
-                  press: () => viewModel.onSpecialOfferPressed(1),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: SpecialOfferCard(
-                  image: AppImages.eventPoliceCareIcon,
-                  eventtitle: AppLocalizations.of(
-                    context,
-                  )!.eventPoliceCareTitle,
-                  subevent: AppLocalizations.of(
-                    context,
-                  )!.eventPoliceCareSubTitle,
-                  press: () => viewModel.onSpecialOfferPressed(2),
-                ),
-              ),
-            ],
           ),
         ),
         const SizedBox(height: 16),
         // Dot indicators
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(
-            3,
-            (index) => AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
-              margin: const EdgeInsets.symmetric(horizontal: 4),
-              height: 8,
-              width: _currentPage == index ? 24 : 8,
-              decoration: BoxDecoration(
-                color: _currentPage == index
-                    ? AppColors.primary_violet
-                    : AppColors.grey.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(4),
+        Consumer<HomeScreenViewModel>(
+          builder: (context, viewModel, _) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                3,
+                (index) => AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  margin: const EdgeInsets.symmetric(horizontal: 4),
+                  height: 8,
+                  width: viewModel.currentPage == index ? 24 : 8,
+                  decoration: BoxDecoration(
+                    color: viewModel.currentPage == index
+                        ? AppColors.primary_violet
+                        : AppColors.grey.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ],
     );
@@ -471,118 +438,152 @@ class ContactBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.all(15),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-      decoration: BoxDecoration(
-        color: AppColors.primary_violet,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.primary_violet.withOpacity(0.3),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            AppLocalizations.of(context)!.contactChannels,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            "Get in Touch",
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 20),
-          ...ContactDataManager.contactItems.map(
-            (contact) => Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: _buildContactItem(
-                context: context,
-                iconPath: contact.iconPath,
-                titleKey: contact.titleKey,
-                valueKey: contact.valueKey,
+    return Consumer<HomeScreenViewModel>(
+      builder: (context, viewModel, _) {
+        return Container(
+          width: double.infinity,
+          margin: const EdgeInsets.all(15),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+          decoration: BoxDecoration(
+            color: AppColors.primary_violet,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.primary_violet.withOpacity(0.3),
+                blurRadius: 12,
+                offset: const Offset(0, 4),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.contactChannels,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                "Get in Touch",
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 20),
+              ...ContactDataManager.contactItems.map(
+                (contact) => Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: _buildContactItem(
+                    context: context,
+                    viewModel: viewModel,
+                    iconPath: contact.iconPath,
+                    titleKey: contact.titleKey,
+                    valueKey: contact.valueKey,
+                    contactType: contact.type,
+                    qrCodePath: contact.qrCodePath,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 
   Widget _buildContactItem({
     required BuildContext context,
+    required HomeScreenViewModel viewModel,
     required String iconPath,
     required String titleKey,
     required String valueKey,
+    required ContactType contactType,
+    String? qrCodePath,
   }) {
     final localizations = AppLocalizations.of(context)!;
-    final title = _getLocalizedValue(localizations, titleKey);
-    final value = _getLocalizedValue(localizations, valueKey);
+    final title = viewModel.getLocalizedContactValue(localizations, titleKey);
+    final value = viewModel.getLocalizedContactValue(localizations, valueKey);
 
     return Row(
       children: [
-        SizedBox(width: 24, height: 24, child: Image.asset(iconPath)),
+        SizedBox(
+          width: 24,
+          height: 24,
+          child: iconPath.startsWith('http')
+              ? Image.network(iconPath)
+              : Image.asset(iconPath),
+        ),
         const SizedBox(width: 12),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white70,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  color: Colors.white70,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                value,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(width: 12),
+        if (qrCodePath != null)
+          GestureDetector(
+            onTap: () => viewModel.showQRCodeDialog(context, qrCodePath),
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: Icon(
+                Icons.qr_code,
+                color: AppColors.primary_white,
+                size: 28,
               ),
             ),
-            const SizedBox(height: 2),
-            Text(
-              value,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
+          ),
+        if (qrCodePath != null) const SizedBox(width: 12),
+        if (contactType == ContactType.phone)
+          GestureDetector(
+            onTap: () => viewModel.dialPhone(value),
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: Icon(
+                Icons.phone,
+                color: AppColors.primary_white,
+                size: 28,
               ),
             ),
-          ],
+          ),
+        if (contactType == ContactType.phone) const SizedBox(width: 12),
+        GestureDetector(
+          onTap: () =>
+              viewModel.copyToClipboard(context, value, contactType, localizations),
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: Icon(
+              Icons.content_copy,
+              color: AppColors.primary_white,
+              size: 25,
+            ),
+          ),
         ),
       ],
     );
-  }
-
-  String _getLocalizedValue(AppLocalizations localizations, String key) {
-    switch (key) {
-      case "email":
-        return localizations.email;
-      case "contactGmail":
-        return localizations.contactGmail;
-      case "phone":
-        return localizations.phone;
-      case "contactPhone":
-        return localizations.contactPhone;
-      case "line":
-        return localizations.line;
-      case "contactLineid":
-        return localizations.contactLineid;
-      case "github":
-        return localizations.github;
-      case "contactGithub":
-        return localizations.contactGithub;
-      default:
-        return key;
-    }
   }
 }

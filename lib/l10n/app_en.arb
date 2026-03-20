@@ -59,7 +59,10 @@
   "contactLineid":"kittanai2003",
   "phone":"Call",
   "contactPhone":"061-4852560",
-  "github":"Github",
-  "contactGithub":"kittanai46"
+  "github":"GitHub",
+  "contactGithub":"kittanai46",
+  "linkedin":"Linkedin",
+  "contactLinkedin":"Kittanai Srikham",
+  "copied":"copied to clipboard"
 
 }

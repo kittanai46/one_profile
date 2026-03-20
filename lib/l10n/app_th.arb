@@ -65,11 +65,14 @@
 
   "email":"อีเมล",
   "contactGmail":"k.kittanai46@gmail.com",
-  "line":"ไลน์ไอดี",
+  "line":"LineID",
   "contactLineid":"kittanai2003",
   "phone":"โทร",
   "contactPhone":"061-4852560",
-  "github":"Github",
-  "contactGithub":"kittanai46"
+  "github":"GitHub",
+  "contactGithub":"kittanai46",
+  "linkedin":"Linkedin",
+  "contactLinkedin":"Kittanai Srikham",
+  "copied":"ถูกคัดลอกเอาไว้แล้ว"
 
 }

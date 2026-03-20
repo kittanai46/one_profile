@@ -281,7 +281,7 @@ abstract class AppLocalizations {
   /// No description provided for @github.
   ///
   /// In en, this message translates to:
-  /// **'Github'**
+  /// **'GitHub'**
   String get github;
 
   /// No description provided for @liveDemo.
@@ -415,6 +415,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'kittanai46'**
   String get contactGithub;
+
+  /// No description provided for @linkedin.
+  ///
+  /// In en, this message translates to:
+  /// **'Linkedin'**
+  String get linkedin;
+
+  /// No description provided for @contactLinkedin.
+  ///
+  /// In en, this message translates to:
+  /// **'Kittanai Srikham'**
+  String get contactLinkedin;
+
+  /// No description provided for @copied.
+  ///
+  /// In en, this message translates to:
+  /// **'copied to clipboard'**
+  String get copied;
 }
 
 class _AppLocalizationsDelegate

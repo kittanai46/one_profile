@@ -100,7 +100,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get ratingLabel => 'คะแนน';
 
   @override
-  String get github => 'Github';
+  String get github => 'GitHub';
 
   @override
   String get liveDemo => 'Live Demo';
@@ -155,7 +155,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get contactGmail => 'k.kittanai46@gmail.com';
 
   @override
-  String get line => 'ไลน์ไอดี';
+  String get line => 'LineID';
 
   @override
   String get contactLineid => 'kittanai2003';
@@ -168,4 +168,13 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get contactGithub => 'kittanai46';
+
+  @override
+  String get linkedin => 'Linkedin';
+
+  @override
+  String get contactLinkedin => 'Kittanai Srikham';
+
+  @override
+  String get copied => 'ถูกคัดลอกเอาไว้แล้ว';
 }

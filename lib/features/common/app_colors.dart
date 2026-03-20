@@ -9,6 +9,7 @@ class AppColors {
   static const Color primary_red = Color(0xFFFF4848);
   static const Color primary_black = Color(0xFF000000);
   static const Color primary_blue = Color(0xFF1053A1);
+  static const Color primary_white = Color(0xFFFFFFFF);
 
   // Neutral colors
   static const Color grey = Color(0xFF979797);

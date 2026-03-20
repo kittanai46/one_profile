@@ -33,7 +33,7 @@ class _WorkPieceState extends State<WorkPiece> {
 
   void _startAutoScroll() {
     _autoScrollTimer = Timer.periodic(const Duration(seconds: 6), (timer) {
-      if (mounted && _scrollController.hasClients) {
+      if (mounted && _scrollController.hasClients && _scrollController.position.hasContentDimensions) {
         _scrollPosition += 200;
         if (_scrollPosition > _scrollController.position.maxScrollExtent) {
           _scrollPosition = 0;
@@ -62,7 +62,7 @@ class _WorkPieceState extends State<WorkPiece> {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SectionTitle(
             title: AppLocalizations.of(context)!.applicationsDeveloped,
-            press: () => Navigator.of(context).pushNamed(AppRoutes.WorkPiece),
+            press: () => Navigator.of(context).pushNamed(AppRoutes.workPiece),
           ),
         ),
         ChangeNotifierProvider(
