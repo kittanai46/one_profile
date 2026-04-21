@@ -124,7 +124,7 @@ class _SplashContentState extends State<SplashContent> {
         ),
         Text(widget.text!, textAlign: TextAlign.center),
         const Spacer(flex: 2),
-        Image.asset(
+        Image.network(
           widget.image!,
           fit: BoxFit.contain,
           height: 265,

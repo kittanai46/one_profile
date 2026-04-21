@@ -1,23 +1,21 @@
 class AppImages {
   // Splash Screen and profile
-  static const String infoApp01 = 'assets/images/info_app01.png';
-  static const String profileImage = 'assets/images/profile.png';
+  static const String infoApp01 = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/info_app01.png';
+  static const String profileImage = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/profile.png';
 
   // ผลงานที่ผ่านมา
-  static const String classTrackingIcon = 'assets/images/class_tracking.png';
-  static const String classTrackingPage =
-      'assets/images/class_tracking_page.png';
-  static const String wpfIcon = 'assets/images/WPF_PN.png';
-  static const String wpfPage = 'assets/images/wpf_page.png';
-  static const String automationIcon = 'assets/images/automation_PN.png';
-  static const String backofficeIcon = 'assets/images/back_office_PN.png';
-  static const String resumeIcon = 'assets/images/resume_PN.png';
+  static const String classTrackingIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/class_tracking.png';
+  static const String classTrackingPage ='https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/class_tracking_page.png';
+  static const String wpfIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/wpfIcon.png';
+  static const String wpfPage = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/wpfPage.png';
+  static const String automationIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/automationIcon.png';
+  static const String backofficeIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/backofficeIcon.png';
+  static const String resumeIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/resumeIcon.png';
 
   // การแข่งขันและร่วมงาน
-  static const String tesaTopgunIcon = 'assets/images/Tesa_topgun.png';
-  static const String popularVoteIcon = 'assets/images/popular_vote.png';
-  static const String eventPoliceCareIcon =
-      'assets/images/event_policecare.png';
+  static const String tesaTopgunIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/tesaTopgunIcon.png';
+  static const String popularVoteIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/popularVoteIcon.png';
+  static const String eventPoliceCareIcon ='https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/eventPoliceCareIcon.png';
 
   // contact
   static const String contactIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/contact/contact.gif';

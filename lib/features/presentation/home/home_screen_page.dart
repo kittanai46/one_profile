@@ -141,7 +141,7 @@ class WelcomeBanner extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(AppImages.profileImage, height: 90),
+          Image.network(AppImages.profileImage, height: 90),
           const SizedBox(width: 16),
           Expanded(
             child: Column(
@@ -393,7 +393,7 @@ class SpecialOfferCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         child: Stack(
           children: [
-            Image.asset(image, fit: BoxFit.cover, width: double.infinity),
+            Image.network(image, fit: BoxFit.cover, width: double.infinity),
             Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(

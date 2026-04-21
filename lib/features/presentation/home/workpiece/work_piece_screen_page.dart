@@ -164,8 +164,10 @@ class ProductCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: imagePath != null
-                    ? Image.asset(imagePath!)
-                    : Image.asset(AppImages.classTrackingIcon),
+                    ? (imagePath!.startsWith('http')
+                        ? Image.network(imagePath!)
+                        : Image.asset(imagePath!))
+                    : Image.network(AppImages.classTrackingIcon),
               ),
             ),
             const SizedBox(height: 10),
