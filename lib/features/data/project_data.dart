@@ -1,9 +1,20 @@
+import 'dart:convert';
+import 'package:flutter/services.dart';
+
+
 /// Model for project feature
 class ProjectFeature {
   final String title;
   final String? description;
 
   ProjectFeature({required this.title, this.description});
+
+  factory ProjectFeature.fromJson(Map<String, dynamic> json) {
+    return ProjectFeature(
+      title: json['title'] as String,
+      description: json['description'] as String?,
+    );
+  }
 }
 
 /// Model for project stats
@@ -12,6 +23,13 @@ class ProjectStat {
   final String label;
 
   ProjectStat({required this.value, required this.label});
+
+  factory ProjectStat.fromJson(Map<String, dynamic> json) {
+    return ProjectStat(
+      value: json['value'] as String,
+      label: json['label'] as String,
+    );
+  }
 }
 
 /// Model for project external links
@@ -21,9 +39,24 @@ class ProjectLink {
   final LinkType type;
 
   ProjectLink({required this.label, required this.url, required this.type});
+
+  factory ProjectLink.fromJson(Map<String, dynamic> json) {
+    return ProjectLink(
+      label: json['label'] as String,
+      url: json['url'] as String,
+      type: _parseLinkType(json['type'] as String),
+    );
+  }
 }
 
 enum LinkType { github, demo, website }
+
+LinkType _parseLinkType(String type) {
+  return LinkType.values.firstWhere(
+    (e) => e.toString().split('.').last == type,
+    orElse: () => LinkType.github,
+  );
+}
 
 /// Complete project model
 class ProjectModel {
@@ -46,39 +79,52 @@ class ProjectModel {
     required this.stats,
     required this.links,
   });
+
+  factory ProjectModel.fromJson(Map<String, dynamic> json) {
+    return ProjectModel(
+      id: json['id'] as String,
+      title: json['title'] as String,
+      description: json['description'] as String,
+      imageAsset: json['imageAsset'] as String,
+      features: (json['features'] as List<dynamic>)
+          .map((e) => ProjectFeature.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      technologies: List<String>.from(json['technologies'] as List<dynamic>),
+      stats: (json['stats'] as List<dynamic>)
+          .map((e) => ProjectStat.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      links: (json['links'] as List<dynamic>)
+          .map((e) => ProjectLink.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+  }
 }
 
-// Sample ClassTracking Project Data
-final classTrackingProject = ProjectModel(
-  id: 'class_tracking',
-  title: 'Class Tracking System',
-  description:
-      'A comprehensive class management and tracking system designed to help educators and students keep track of attendance, grades, and course progress in real-time.',
-  imageAsset: 'assets/images/class_tracking.png',
-  features: [
-    ProjectFeature(title: 'Real-time attendance tracking'),
-    ProjectFeature(title: 'Automated grade calculation'),
-    ProjectFeature(title: 'Student progress monitoring'),
-    ProjectFeature(title: 'Parent notification system'),
-    ProjectFeature(title: 'Mobile app support'),
-    ProjectFeature(title: 'Cloud-based storage'),
-  ],
-  technologies: ['Flutter', 'Firebase', 'Dart', 'REST API'],
-  stats: [
-    ProjectStat(value: '2023', label: 'Year Started'),
-    ProjectStat(value: '500+', label: 'Users'),
-    ProjectStat(value: '4.8', label: 'Rating'),
-  ],
-  links: [
-    ProjectLink(
-      label: 'GitHub',
-      url: 'https://github.com/yourusername/class-tracking',
-      type: LinkType.github,
-    ),
-    ProjectLink(
-      label: 'Live Demo',
-      url: 'https://demo.classTracking.app',
-      type: LinkType.demo,
-    ),
-  ],
-);
+// Load projects from JSON file
+Future<ProjectModel> loadClassTrackingProject() async {
+  try {
+    final jsonString = await rootBundle.loadString('assets/datalist/achievements_list.json');
+    if (jsonString.isEmpty) {
+      throw Exception('JSON file is empty');
+    }
+    final List<dynamic> jsonList = jsonDecode(jsonString);
+    if (jsonList.isEmpty) {
+      throw Exception('JSON list is empty');
+    }
+    return ProjectModel.fromJson(jsonList.first as Map<String, dynamic>);
+  } catch (e) {
+    print('Error loading achievements_list.json: $e');
+    rethrow;
+  }
+}
+
+// Cached project data
+ProjectModel? _classTrackingProject;
+
+Future<ProjectModel> getClassTrackingProject() async {
+  _classTrackingProject ??= await loadClassTrackingProject();
+  return _classTrackingProject!;
+}
+
+// For backward compatibility
+late final Future<ProjectModel> classTrackingProjectFuture = loadClassTrackingProject();

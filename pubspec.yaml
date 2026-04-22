@@ -31,5 +31,6 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/datalist/achievements_list.json
 
 
