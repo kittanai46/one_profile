@@ -121,13 +121,63 @@ class AppLocalizationsTh extends AppLocalizations {
   String get iteam_01 => 'Class Tracking\nแอปพลิเคชัน';
 
   @override
+  String get description_01 => 'แอปพลิเคชันปริญญานิพนธ์';
+
+  @override
+  String get iteam_01_name => 'ปริญญานิพนธ์: ระบบเช็คชื่อนิสิตด้วยบลูทูธบีคอน';
+
+  @override
+  String get iteam_01_description =>
+      'ระบบเช็คชื่อนิสิตด้วยการตรวจจับสัญญาณบลูทูธ โดยนิสิตต้องเปิดแอปพลิเคชันควบคู่กับการเปิดบลูทูธบนมือถือ เมื่อเข้าสู่ระยะสัญญาณที่บอร์ด ESP32 กระจายออกมา ระบบจะบันทึกการเข้าเรียนโดยอัตโนมัติ และสามารถตรวจสอบสถานะการเข้าเรียนได้แบบเรียลไทม์ ภายในแอปยังมีฟังก์ชันเสริม เช่น การส่งใบลาออนไลน์ และอื่นๆ';
+
+  @override
+  String get iteam_01_FeatureA => 'เช็คชื่อเข้าเรียนโดยอัตโนมัติ';
+
+  @override
+  String get iteam_01_FeatureB => 'ตรวจสถานะการเข้าเรียนได้แบบเรียลไทม์';
+
+  @override
+  String get iteam_01_FeatureC =>
+      'ส่ง/อนุมัติ ใบลาผ่านแอปพลิเคชัน พร้อมสามารถตรวจสถานะ';
+
+  @override
+  String get iteam_01_FeatureD => 'ส่ง/รับ ข่าวสารประกาศการแจ้งเตือน';
+
+  @override
+  String get iteam_01_FeatureE => 'ตั้งเวลาสำหรับการเช็คชื่อ';
+
+  @override
+  String get iteam_01_page_name => 'ตัวอย่างหน้าแอปพลิเคชัน';
+
+  @override
+  String get iteam_01_page_description =>
+      'แอปพลิเคชัน Class Tracking ถูกออกแบบมาเพื่อรองรับการใช้งานทั้งสำหรับ นิสิต และ อาจารย์ ภายในแอปพลิเคชันเดียวกัน โดยระบบจะทำการกำหนดสิทธิ์และแสดงผลการใช้งานตามบทบาท (Role-Based Access) ของผู้ใช้ที่เข้าสู่ระบบ';
+
+  @override
+  String get iteam_01_page_titalA => 'สำหรับฝั่ง นิสิต ผู้ใช้งานสามารถ';
+
+  @override
+  String get iteam_01_page_SubtitalA =>
+      'เช็คชื่อเข้าเรียนในรายวิชาของตนเองตรวจสอบประวัติการเข้าเรียนย้อนหลัง';
+
+  @override
   String get iteam_02 => 'WPF เดสท็อปแอปพลิเคชัน';
+
+  @override
+  String get description_02 => 'แอปพลิเคชันเดสท็อปสำหรับตู้ VTM';
 
   @override
   String get iteam_03 => 'Automation\nTestcase';
 
   @override
-  String get iteam_04 => 'BackOffice';
+  String get description_03 => 'ทดสอบฟังก์ชันอัตโนมัติด้วยSelenium';
+
+  @override
+  String get iteam_04 => 'Web BackOffice';
+
+  @override
+  String get description_04 =>
+      'การพัฒนาระบบเว็บหลังบ้านที่ใช้เก็บหรือดูข้อมูลต่างๆ';
 
   @override
   String get tesaTopgunTitle => 'TesaTopGun 2022';

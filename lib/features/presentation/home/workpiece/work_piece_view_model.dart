@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one_profile/features/common/app_images.dart';
-import 'package:one_profile/features/data/home_data.dart';
+import 'package:one_profile/features/data/achievements_data.dart';
 import 'package:one_profile/features/presentation/routes/home_routes.dart';
 
 class WorkPieceViewModel extends ChangeNotifier {
@@ -22,10 +22,6 @@ class WorkPieceViewModel extends ChangeNotifier {
 
   /// Handle product card press
   void onProductPressed(int index, Product product, BuildContext context) {
-    if (index == 0) {
-      Navigator.of(context).pushNamed(AppRoutes.classTracking);
-    } else {
-      debugPrint('Product ${product.title} pressed');
-    }
+    Navigator.of(context).pushNamed(AppRoutes.achievements);
   }
 }

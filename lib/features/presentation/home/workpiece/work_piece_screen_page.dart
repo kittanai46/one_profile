@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:one_profile/features/common/app_colors.dart';
 import 'package:one_profile/features/common/app_font.dart';
 import 'package:one_profile/features/common/app_images.dart';
-import 'package:one_profile/features/data/home_data.dart';
+import 'package:one_profile/features/data/achievements_data.dart';
 import 'package:one_profile/features/presentation/home/home_screen_view_model.dart';
 import 'package:one_profile/features/presentation/home/workpiece/work_piece_view_model.dart';
 import 'package:one_profile/features/presentation/routes/home_routes.dart';
@@ -62,7 +62,7 @@ class _WorkPieceState extends State<WorkPiece> {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SectionTitle(
             title: AppLocalizations.of(context)!.applicationsDeveloped,
-            press: () => Navigator.of(context).pushNamed(AppRoutes.workPiece),
+            press: () => Navigator.of(context).pushNamed(AppRoutes.achievements),
           ),
         ),
         ChangeNotifierProvider(

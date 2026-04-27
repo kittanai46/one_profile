@@ -101,6 +101,24 @@ class ProjectModel {
 }
 
 // Load projects from JSON file
+Future<List<ProjectModel>> loadAllProjects() async {
+  try {
+    final jsonString = await rootBundle.loadString('assets/datalist/achievements_list.json');
+    if (jsonString.isEmpty) {
+      throw Exception('JSON file is empty');
+    }
+    final List<dynamic> jsonList = jsonDecode(jsonString);
+    if (jsonList.isEmpty) {
+      throw Exception('JSON list is empty');
+    }
+    return jsonList
+        .map((item) => ProjectModel.fromJson(item as Map<String, dynamic>))
+        .toList();
+  } catch (e) {
+    rethrow;
+  }
+}
+
 Future<ProjectModel> loadClassTrackingProject() async {
   try {
     final jsonString = await rootBundle.loadString('assets/datalist/achievements_list.json');
@@ -113,13 +131,18 @@ Future<ProjectModel> loadClassTrackingProject() async {
     }
     return ProjectModel.fromJson(jsonList.first as Map<String, dynamic>);
   } catch (e) {
-    print('Error loading achievements_list.json: $e');
     rethrow;
   }
 }
 
 // Cached project data
+List<ProjectModel>? _allProjects;
 ProjectModel? _classTrackingProject;
+
+Future<List<ProjectModel>> getAllProjects() async {
+  _allProjects ??= await loadAllProjects();
+  return _allProjects!;
+}
 
 Future<ProjectModel> getClassTrackingProject() async {
   _classTrackingProject ??= await loadClassTrackingProject();
@@ -127,4 +150,4 @@ Future<ProjectModel> getClassTrackingProject() async {
 }
 
 // For backward compatibility
-late final Future<ProjectModel> classTrackingProjectFuture = loadClassTrackingProject();
+final Future<ProjectModel> classTrackingProjectFuture = loadClassTrackingProject();

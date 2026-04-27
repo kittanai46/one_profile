@@ -320,11 +320,89 @@ abstract class AppLocalizations {
   /// **'Class Tracking\nApplication'**
   String get iteam_01;
 
+  /// No description provided for @description_01.
+  ///
+  /// In en, this message translates to:
+  /// **'Thesis Application'**
+  String get description_01;
+
+  /// No description provided for @iteam_01_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Thesis: Student Attendance System with Bluetooth Beacon'**
+  String get iteam_01_name;
+
+  /// No description provided for @iteam_01_description.
+  ///
+  /// In en, this message translates to:
+  /// **'A student attendance system that detects Bluetooth signals. Students open the application and enable Bluetooth on their device. When entering the signal range of the ESP32 board, the system automatically records attendance and allows real-time status checks. The app also includes additional features such as online leave requests and more.'**
+  String get iteam_01_description;
+
+  /// No description provided for @iteam_01_FeatureA.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic attendance check-in'**
+  String get iteam_01_FeatureA;
+
+  /// No description provided for @iteam_01_FeatureB.
+  ///
+  /// In en, this message translates to:
+  /// **'Real-time attendance status verification'**
+  String get iteam_01_FeatureB;
+
+  /// No description provided for @iteam_01_FeatureC.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit/Approve leave requests through the application with status tracking'**
+  String get iteam_01_FeatureC;
+
+  /// No description provided for @iteam_01_FeatureD.
+  ///
+  /// In en, this message translates to:
+  /// **'Send/Receive announcements and notifications'**
+  String get iteam_01_FeatureD;
+
+  /// No description provided for @iteam_01_FeatureE.
+  ///
+  /// In en, this message translates to:
+  /// **'Set time for attendance check-in'**
+  String get iteam_01_FeatureE;
+
+  /// No description provided for @iteam_01_page_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Application Page Examples'**
+  String get iteam_01_page_name;
+
+  /// No description provided for @iteam_01_page_description.
+  ///
+  /// In en, this message translates to:
+  /// **'The Class Tracking application is designed to support both students and instructors within the same application. The system assigns permissions and displays usage based on the user\'s role (Role-Based Access).'**
+  String get iteam_01_page_description;
+
+  /// No description provided for @iteam_01_page_titalA.
+  ///
+  /// In en, this message translates to:
+  /// **'For Students, users can'**
+  String get iteam_01_page_titalA;
+
+  /// No description provided for @iteam_01_page_SubtitalA.
+  ///
+  /// In en, this message translates to:
+  /// **'Check attendance in their own courses and review attendance history'**
+  String get iteam_01_page_SubtitalA;
+
   /// No description provided for @iteam_02.
   ///
   /// In en, this message translates to:
   /// **'WPF Desktop Application'**
   String get iteam_02;
+
+  /// No description provided for @description_02.
+  ///
+  /// In en, this message translates to:
+  /// **'Desktop application for VTM machines'**
+  String get description_02;
 
   /// No description provided for @iteam_03.
   ///
@@ -332,11 +410,23 @@ abstract class AppLocalizations {
   /// **'Automation\nTestcase'**
   String get iteam_03;
 
+  /// No description provided for @description_03.
+  ///
+  /// In en, this message translates to:
+  /// **'Automated function testing with Selenium'**
+  String get description_03;
+
   /// No description provided for @iteam_04.
   ///
   /// In en, this message translates to:
   /// **'BackOffice'**
   String get iteam_04;
+
+  /// No description provided for @description_04.
+  ///
+  /// In en, this message translates to:
+  /// **'Web backend system development for data storage and viewing'**
+  String get description_04;
 
   /// No description provided for @tesaTopgunTitle.
   ///

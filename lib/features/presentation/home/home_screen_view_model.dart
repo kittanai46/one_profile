@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:one_profile/features/data/home_data.dart';
+import 'package:one_profile/features/data/achievements_data.dart';
 import 'package:one_profile/features/data/contact_data.dart';
 import 'package:one_profile/l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -33,7 +33,7 @@ class HomeScreenViewModel extends ChangeNotifier {
   void _initializePopularProductsWithLocalization(
     AppLocalizations localizations,
   ) {
-    final allProducts = getWorkpiece(localizations);
+    final allProducts = getAchievements(localizations);
     popularProducts = allProducts.where((product) => product.isShow).toList();
   }
 

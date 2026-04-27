@@ -6,6 +6,7 @@ import 'package:one_profile/features/presentation/home/hamberger/splash_screen_p
 import 'package:one_profile/features/presentation/home/workpiece/class_tracking/class_tracking_screen_page.dart';
 import 'package:one_profile/features/presentation/home/hamberger/language_select_page.dart';
 import 'package:one_profile/features/presentation/home/resume/resume_screen_page.dart';
+import 'package:one_profile/features/presentation/home/achievements/achievements_page.dart';
 
 class AppRoutes {
   static const String splash = '/splash';
@@ -14,6 +15,7 @@ class AppRoutes {
   static const String classTracking = '/class_tracking';
   static const String languageSelect = '/language_select';
   static const String resume = '/resume';
+  static const String achievements = '/achievements';
 }
 
 class AppRouter {
@@ -51,6 +53,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const ResumeScreen(),
           settings: const RouteSettings(name: '/resume'),
+        );
+      case AppRoutes.achievements:
+      case '/achievements':
+        return MaterialPageRoute(
+          builder: (_) => const AchievementsPage(),
+          settings: const RouteSettings(name: '/achievements'),
         );
       default:
         return MaterialPageRoute(

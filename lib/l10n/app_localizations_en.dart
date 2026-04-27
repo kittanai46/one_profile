@@ -121,13 +121,65 @@ class AppLocalizationsEn extends AppLocalizations {
   String get iteam_01 => 'Class Tracking\nApplication';
 
   @override
+  String get description_01 => 'Thesis Application';
+
+  @override
+  String get iteam_01_name =>
+      'Thesis: Student Attendance System with Bluetooth Beacon';
+
+  @override
+  String get iteam_01_description =>
+      'A student attendance system that detects Bluetooth signals. Students open the application and enable Bluetooth on their device. When entering the signal range of the ESP32 board, the system automatically records attendance and allows real-time status checks. The app also includes additional features such as online leave requests and more.';
+
+  @override
+  String get iteam_01_FeatureA => 'Automatic attendance check-in';
+
+  @override
+  String get iteam_01_FeatureB => 'Real-time attendance status verification';
+
+  @override
+  String get iteam_01_FeatureC =>
+      'Submit/Approve leave requests through the application with status tracking';
+
+  @override
+  String get iteam_01_FeatureD =>
+      'Send/Receive announcements and notifications';
+
+  @override
+  String get iteam_01_FeatureE => 'Set time for attendance check-in';
+
+  @override
+  String get iteam_01_page_name => 'Application Page Examples';
+
+  @override
+  String get iteam_01_page_description =>
+      'The Class Tracking application is designed to support both students and instructors within the same application. The system assigns permissions and displays usage based on the user\'s role (Role-Based Access).';
+
+  @override
+  String get iteam_01_page_titalA => 'For Students, users can';
+
+  @override
+  String get iteam_01_page_SubtitalA =>
+      'Check attendance in their own courses and review attendance history';
+
+  @override
   String get iteam_02 => 'WPF Desktop Application';
+
+  @override
+  String get description_02 => 'Desktop application for VTM machines';
 
   @override
   String get iteam_03 => 'Automation\nTestcase';
 
   @override
+  String get description_03 => 'Automated function testing with Selenium';
+
+  @override
   String get iteam_04 => 'BackOffice';
+
+  @override
+  String get description_04 =>
+      'Web backend system development for data storage and viewing';
 
   @override
   String get tesaTopgunTitle => 'TesaTopGun 2022';

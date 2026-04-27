@@ -38,13 +38,28 @@
   "text_location":"Currently at Bangkok",
 
   "iteam_01":"Class Tracking\nApplication",
+  "description_01":"Thesis Application",
+  "iteam_01_name":"Thesis: Student Attendance System with Bluetooth Beacon",
+  "iteam_01_description":"A student attendance system that detects Bluetooth signals. Students open the application and enable Bluetooth on their device. When entering the signal range of the ESP32 board, the system automatically records attendance and allows real-time status checks. The app also includes additional features such as online leave requests and more.",
+  "iteam_01_FeatureA":"Automatic attendance check-in",
+  "iteam_01_FeatureB":"Real-time attendance status verification",
+  "iteam_01_FeatureC":"Submit/Approve leave requests through the application with status tracking",
+  "iteam_01_FeatureD":"Send/Receive announcements and notifications",
+  "iteam_01_FeatureE":"Set time for attendance check-in",
+  "iteam_01_page_name":"Application Page Examples",
+  "iteam_01_page_description":"The Class Tracking application is designed to support both students and instructors within the same application. The system assigns permissions and displays usage based on the user's role (Role-Based Access).",
+  "iteam_01_page_titalA":"For Students, users can",
+  "iteam_01_page_SubtitalA":"Check attendance in their own courses and review attendance history",
 
 
   "iteam_02":"WPF Desktop Application",
+  "description_02":"Desktop application for VTM machines",
 
   "iteam_03":"Automation\nTestcase",
+  "description_03":"Automated function testing with Selenium",
 
   "iteam_04":"BackOffice",
+  "description_04":"Web backend system development for data storage and viewing",
 
   "tesaTopgunTitle":"TesaTopGun 2022",
   "tesaTopgunSubTitle":"The 16th Thailand Embedded Systems Skills Competition.",
