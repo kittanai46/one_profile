@@ -1,0 +1,250 @@
+[
+  {
+    "id": "iteam_01",
+    "title": "Class Tracking Application",
+    "description": "Thesis: Student Attendance System with Bluetooth Beacon",
+    "imageAsset": "https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/class_tracking.png",
+    "images": [
+      {
+        "url": "https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/class_tracking_page.png",
+        "label": "Application Interface",
+        "description": "A comprehensive interface for tracking class attendance and managing student information with real-time updates"
+      }
+    ],
+    "features": [
+      {
+        "title": "Automatic attendance check-in",
+        "description": "Bluetooth beacon detection for automatic attendance recording"
+      },
+      {
+        "title": "Real-time attendance status verification",
+        "description": "Check attendance status instantly"
+      },
+      {
+        "title": "Submit/Approve leave requests through the application",
+        "description": "Complete leave management system with status tracking"
+      },
+      {
+        "title": "Send/Receive announcements and notifications",
+        "description": "Real-time communication channel between students and instructors"
+      },
+      {
+        "title": "Set time for attendance check-in",
+        "description": "Configure attendance timing settings"
+      }
+    ],
+    "technologies": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "Bluetooth",
+      "ESP32",
+      "Node.js",
+      "MongoDB"
+    ],
+    "stats": [
+      {
+        "value": "2024",
+        "label": "Year Started"
+      },
+      {
+        "value": "150+",
+        "label": "Users"
+      },
+      {
+        "value": "4.8",
+        "label": "Rating"
+      }
+    ],
+    "links": [
+      {
+        "label": "GitHub Repository",
+        "url": "https://github.com/kittanai46/class_tracking",
+        "type": "github"
+      },
+      {
+        "label": "Live Demo",
+        "url": "https://example.com/class-tracking-demo",
+        "type": "demo"
+      }
+    ]
+  },
+  {
+    "id": "iteam_02",
+    "title": "WPF Desktop Application",
+    "description": "Desktop application for VTM machines",
+    "imageAsset": "https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/wpfIcon.png",
+    "images": [
+      {
+        "url": "https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/wpfIcon.png",
+        "label": "WPF Application Icon",
+        "description": null
+      },
+      {
+        "url": "https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/wpf_page.png",
+        "label": "Desktop Interface",
+        "description": null
+      }
+    ],
+    "features": [
+      {
+        "title": "Transaction Management",
+        "description": null
+      },
+      {
+        "title": "User-friendly Interface",
+        "description": null
+      },
+      {
+        "title": "Real-time Data Sync",
+        "description": null
+      }
+    ],
+    "technologies": [
+      "C#",
+      "WPF",
+      ".NET Framework",
+      "SQL Server"
+    ],
+    "stats": [
+      {
+        "value": "2023",
+        "label": "Year Started"
+      },
+      {
+        "value": "50+",
+        "label": "Deployments"
+      },
+      {
+        "value": "4.5",
+        "label": "Rating"
+      }
+    ],
+    "links": [
+      {
+        "label": "GitHub Repository",
+        "url": "https://github.com/kittanai46/wpf-vtm",
+        "type": "github"
+      }
+    ]
+  },
+  {
+    "id": "iteam_03",
+    "title": "Automation Testcase",
+    "description": "Automated function testing with Selenium",
+    "imageAsset": "https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/automationIcon.png",
+    "images": [
+      {
+        "url": "https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/automationIcon.png",
+        "label": "Automation Testing Icon",
+        "description": null
+      }
+    ],
+    "features": [
+      {
+        "title": "Automated Web Testing",
+        "description": null
+      },
+      {
+        "title": "Cross-browser Support",
+        "description": null
+      },
+      {
+        "title": "Test Reporting",
+        "description": null
+      }
+    ],
+    "technologies": [
+      "Selenium",
+      "Python",
+      "Java",
+      "TestNG",
+      "Cypress"
+    ],
+    "stats": [
+      {
+        "value": "2023",
+        "label": "Year Started"
+      },
+      {
+        "value": "100+",
+        "label": "Test Cases"
+      },
+      {
+        "value": "95%",
+        "label": "Coverage"
+      }
+    ],
+    "links": [
+      {
+        "label": "GitHub Repository",
+        "url": "https://github.com/kittanai46/automation-tests",
+        "type": "github"
+      }
+    ]
+  },
+  {
+    "id": "iteam_04",
+    "title": "BackOffice Web System",
+    "description": "Web backend system development for data storage and viewing",
+    "imageAsset": "https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/backofficeIcon.png",
+    "images": [
+      {
+        "url": "https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/backofficeIcon.png",
+        "label": "BackOffice System Icon",
+        "description": null
+      }
+    ],
+    "features": [
+      {
+        "title": "Data Management",
+        "description": null
+      },
+      {
+        "title": "User Management",
+        "description": null
+      },
+      {
+        "title": "Analytics Dashboard",
+        "description": null
+      },
+      {
+        "title": "Report Generation",
+        "description": null
+      }
+    ],
+    "technologies": [
+      "React",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "stats": [
+      {
+        "value": "2023",
+        "label": "Year Started"
+      },
+      {
+        "value": "1000+",
+        "label": "Records"
+      },
+      {
+        "value": "4.7",
+        "label": "Rating"
+      }
+    ],
+    "links": [
+      {
+        "label": "GitHub Repository",
+        "url": "https://github.com/kittanai46/backoffice",
+        "type": "github"
+      },
+      {
+        "label": "Live System",
+        "url": "https://backoffice-example.com",
+        "type": "demo"
+      }
+    ]
+  }
+]
