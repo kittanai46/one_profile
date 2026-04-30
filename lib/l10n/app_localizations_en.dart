@@ -48,13 +48,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cashbackOffer => 'Cashback 20%';
 
   @override
-  String get competitionAndCollaboration => 'Competitions and collaborations';
+  String get competitionAndCollaboration => 'Activities';
 
   @override
   String get seeMore => 'See more';
 
   @override
-  String get applicationsDeveloped => 'Applications developed/collaborated';
+  String get applicationsDeveloped => 'Achievements';
 
   @override
   String get contactChannels => 'Contact channels';
@@ -161,6 +161,39 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get iteam_01_page_SubtitalA =>
       'Check attendance in their own courses and review attendance history';
+
+  @override
+  String get iteam_01_page_SubtitalA1 =>
+      'Can check in automatically when entering the board signal range';
+
+  @override
+  String get iteam_01_page_SubtitalA2 =>
+      'Can check attendance history in real-time';
+
+  @override
+  String get iteam_01_page_SubtitalA3 =>
+      'Can submit leave requests online through the application';
+
+  @override
+  String get iteam_01_page_SubtitalA4 =>
+      'Can receive notifications from instructors';
+
+  @override
+  String get iteam_01_page_titalB => 'For Instructors, users can';
+
+  @override
+  String get iteam_01_page_SubtitalB1 => 'Can set class entry times in advance';
+
+  @override
+  String get iteam_01_page_SubtitalB2 =>
+      'Can check overall attendance statistics';
+
+  @override
+  String get iteam_01_page_SubtitalB3 =>
+      'Can review and approve leave requests through the application';
+
+  @override
+  String get iteam_01_page_SubtitalB4 => 'Can send activity notifications';
 
   @override
   String get iteam_02 => 'WPF Desktop Application';

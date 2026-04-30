@@ -179,7 +179,7 @@ abstract class AppLocalizations {
   /// No description provided for @competitionAndCollaboration.
   ///
   /// In en, this message translates to:
-  /// **'Competitions and collaborations'**
+  /// **'Activities'**
   String get competitionAndCollaboration;
 
   /// No description provided for @seeMore.
@@ -191,7 +191,7 @@ abstract class AppLocalizations {
   /// No description provided for @applicationsDeveloped.
   ///
   /// In en, this message translates to:
-  /// **'Applications developed/collaborated'**
+  /// **'Achievements'**
   String get applicationsDeveloped;
 
   /// No description provided for @contactChannels.
@@ -391,6 +391,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Check attendance in their own courses and review attendance history'**
   String get iteam_01_page_SubtitalA;
+
+  /// No description provided for @iteam_01_page_SubtitalA1.
+  ///
+  /// In en, this message translates to:
+  /// **'Can check in automatically when entering the board signal range'**
+  String get iteam_01_page_SubtitalA1;
+
+  /// No description provided for @iteam_01_page_SubtitalA2.
+  ///
+  /// In en, this message translates to:
+  /// **'Can check attendance history in real-time'**
+  String get iteam_01_page_SubtitalA2;
+
+  /// No description provided for @iteam_01_page_SubtitalA3.
+  ///
+  /// In en, this message translates to:
+  /// **'Can submit leave requests online through the application'**
+  String get iteam_01_page_SubtitalA3;
+
+  /// No description provided for @iteam_01_page_SubtitalA4.
+  ///
+  /// In en, this message translates to:
+  /// **'Can receive notifications from instructors'**
+  String get iteam_01_page_SubtitalA4;
+
+  /// No description provided for @iteam_01_page_titalB.
+  ///
+  /// In en, this message translates to:
+  /// **'For Instructors, users can'**
+  String get iteam_01_page_titalB;
+
+  /// No description provided for @iteam_01_page_SubtitalB1.
+  ///
+  /// In en, this message translates to:
+  /// **'Can set class entry times in advance'**
+  String get iteam_01_page_SubtitalB1;
+
+  /// No description provided for @iteam_01_page_SubtitalB2.
+  ///
+  /// In en, this message translates to:
+  /// **'Can check overall attendance statistics'**
+  String get iteam_01_page_SubtitalB2;
+
+  /// No description provided for @iteam_01_page_SubtitalB3.
+  ///
+  /// In en, this message translates to:
+  /// **'Can review and approve leave requests through the application'**
+  String get iteam_01_page_SubtitalB3;
+
+  /// No description provided for @iteam_01_page_SubtitalB4.
+  ///
+  /// In en, this message translates to:
+  /// **'Can send activity notifications'**
+  String get iteam_01_page_SubtitalB4;
 
   /// No description provided for @iteam_02.
   ///

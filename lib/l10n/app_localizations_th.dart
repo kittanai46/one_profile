@@ -158,7 +158,41 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get iteam_01_page_SubtitalA =>
-      'เช็คชื่อเข้าเรียนในรายวิชาของตนเองตรวจสอบประวัติการเข้าเรียนย้อนหลัง';
+      'ตรวจสอบการเข้าเรียนในหลักสูตรของตนเองและทบทวนประวัติการเข้าเรียน';
+
+  @override
+  String get iteam_01_page_SubtitalA1 =>
+      'สามารถเช็คชื่ออัตโนมัติเมื่อเข้าระยะสัญญาณของตัวบอร์ด';
+
+  @override
+  String get iteam_01_page_SubtitalA2 =>
+      'สามารถตรวจสอบประวัติการเข้าเรียนแบบเรียลไทม์';
+
+  @override
+  String get iteam_01_page_SubtitalA3 =>
+      'สามารถยื่นใบลาออนไลน์ผ่านแอปพลิเคชันได้';
+
+  @override
+  String get iteam_01_page_SubtitalA4 => 'สามารถได้รับการแจ้งเตือนจากอาจารย์';
+
+  @override
+  String get iteam_01_page_titalB => 'สำหรับฝั่ง อาจารย์ ผู้ใช้งานสามารถ';
+
+  @override
+  String get iteam_01_page_SubtitalB1 =>
+      'สามารถกำหนดเวลาการเข้าห้องเรียนล่วงหน้าได้';
+
+  @override
+  String get iteam_01_page_SubtitalB2 =>
+      'สามารถตรวจสอบสถิติการเข้าห้องเรียนโดยรวมได้';
+
+  @override
+  String get iteam_01_page_SubtitalB3 =>
+      'สามารถตรวจสอบและอนุมัติใบลาผ่านแอปพลิเคชันได้';
+
+  @override
+  String get iteam_01_page_SubtitalB4 =>
+      'สามารถส่งการแจ้งเตือนกิจกรรมต่างๆได้่';
 
   @override
   String get iteam_02 => 'WPF เดสท็อปแอปพลิเคชัน';

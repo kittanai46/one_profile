@@ -232,16 +232,12 @@ class HistoryBanner extends StatelessWidget {
         color: AppColors.primary_violet,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Text.rich(
-        TextSpan(
-          style: const TextStyle(color: Colors.white),
-          children: [
-            TextSpan(text: "${AppLocalizations.of(context)!.workHistory}\n"),
-            TextSpan(
-              text: AppLocalizations.of(context)!.cashbackOffer,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ],
+      child: Text(
+        AppLocalizations.of(context)!.workHistory,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );

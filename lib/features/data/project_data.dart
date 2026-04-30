@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'package:flutter/services.dart';
 
 
 /// Model for project feature
@@ -58,96 +56,115 @@ LinkType _parseLinkType(String type) {
   );
 }
 
+/// Model for project image
+class ProjectImage {
+  final String url;
+  final String label;
+
+  ProjectImage({required this.url, required this.label});
+}
+
 /// Complete project model
 class ProjectModel {
-  final String id;
-  final String title;
-  final String description;
-  final String imageAsset;
-  final List<ProjectFeature> features;
-  final List<String> technologies;
-  final List<ProjectStat> stats;
+  final String id; // iteam_01, iteam_02, etc.
+  final String imageAsset; // Main hero image URL
+  final List<ProjectImage> images; // Additional images
   final List<ProjectLink> links;
 
   ProjectModel({
     required this.id,
-    required this.title,
-    required this.description,
     required this.imageAsset,
-    required this.features,
-    required this.technologies,
-    required this.stats,
-    required this.links,
+    this.images = const [],
+    this.links = const [],
   });
-
-  factory ProjectModel.fromJson(Map<String, dynamic> json) {
-    return ProjectModel(
-      id: json['id'] as String,
-      title: json['title'] as String,
-      description: json['description'] as String,
-      imageAsset: json['imageAsset'] as String,
-      features: (json['features'] as List<dynamic>)
-          .map((e) => ProjectFeature.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      technologies: List<String>.from(json['technologies'] as List<dynamic>),
-      stats: (json['stats'] as List<dynamic>)
-          .map((e) => ProjectStat.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      links: (json['links'] as List<dynamic>)
-          .map((e) => ProjectLink.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-  }
 }
 
-// Load projects from JSON file
-Future<List<ProjectModel>> loadAllProjects() async {
-  try {
-    final jsonString = await rootBundle.loadString('assets/datalist/achievements_list.json');
-    if (jsonString.isEmpty) {
-      throw Exception('JSON file is empty');
-    }
-    final List<dynamic> jsonList = jsonDecode(jsonString);
-    if (jsonList.isEmpty) {
-      throw Exception('JSON list is empty');
-    }
-    return jsonList
-        .map((item) => ProjectModel.fromJson(item as Map<String, dynamic>))
-        .toList();
-  } catch (e) {
-    rethrow;
-  }
+/// Load all projects from app_images
+List<ProjectModel> getAllProjectsData() {
+  return [
+    ProjectModel(
+      id: 'iteam_01',
+      imageAsset: 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/class_tracking.png',
+      images: [
+        ProjectImage(
+          url: 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/class_tracking_page.png',
+          label: 'Application Interface',
+        ),
+      ],
+      links: [
+        ProjectLink(
+          label: 'GitHub Repository',
+          url: 'https://github.com/kittanai46/class_tracking',
+          type: LinkType.github,
+        ),
+        ProjectLink(
+          label: 'Live Demo',
+          url: 'https://example.com/class-tracking-demo',
+          type: LinkType.demo,
+        ),
+      ],
+    ),
+    ProjectModel(
+      id: 'iteam_02',
+      imageAsset: 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/wpfIcon.png',
+      images: [
+        ProjectImage(
+          url: 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/wpf_page.png',
+          label: 'Desktop Interface',
+        ),
+      ],
+      links: [
+        ProjectLink(
+          label: 'GitHub Repository',
+          url: 'https://github.com/kittanai46/wpf-vtm',
+          type: LinkType.github,
+        ),
+      ],
+    ),
+    ProjectModel(
+      id: 'iteam_03',
+      imageAsset: 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/automationIcon.png',
+      images: [],
+      links: [
+        ProjectLink(
+          label: 'GitHub Repository',
+          url: 'https://github.com/kittanai46/automation-tests',
+          type: LinkType.github,
+        ),
+      ],
+    ),
+    ProjectModel(
+      id: 'iteam_04',
+      imageAsset: 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/backofficeIcon.png',
+      images: [],
+      links: [
+        ProjectLink(
+          label: 'GitHub Repository',
+          url: 'https://github.com/kittanai46/backoffice',
+          type: LinkType.github,
+        ),
+        ProjectLink(
+          label: 'Live System',
+          url: 'https://backoffice-example.com',
+          type: LinkType.demo,
+        ),
+      ],
+    ),
+  ];
 }
 
-Future<ProjectModel> loadClassTrackingProject() async {
-  try {
-    final jsonString = await rootBundle.loadString('assets/datalist/achievements_list.json');
-    if (jsonString.isEmpty) {
-      throw Exception('JSON file is empty');
-    }
-    final List<dynamic> jsonList = jsonDecode(jsonString);
-    if (jsonList.isEmpty) {
-      throw Exception('JSON list is empty');
-    }
-    return ProjectModel.fromJson(jsonList.first as Map<String, dynamic>);
-  } catch (e) {
-    rethrow;
-  }
-}
-
-// Cached project data
-List<ProjectModel>? _allProjects;
-ProjectModel? _classTrackingProject;
+// Cached projects
+List<ProjectModel>? _cachedProjects;
 
 Future<List<ProjectModel>> getAllProjects() async {
-  _allProjects ??= await loadAllProjects();
-  return _allProjects!;
+  _cachedProjects ??= getAllProjectsData();
+  return _cachedProjects!;
 }
 
-Future<ProjectModel> getClassTrackingProject() async {
-  _classTrackingProject ??= await loadClassTrackingProject();
-  return _classTrackingProject!;
+Future<ProjectModel?> getProjectById(String id) async {
+  final projects = await getAllProjects();
+  return projects.cast<ProjectModel?>().firstWhere(
+        (project) => project?.id == id,
+        orElse: () => null,
+      );
 }
-
-// For backward compatibility
-final Future<ProjectModel> classTrackingProjectFuture = loadClassTrackingProject();

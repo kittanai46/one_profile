@@ -7,10 +7,16 @@ class AppImages {
   static const String classTrackingIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/class_tracking.png';
   static const String classTrackingPage ='https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/class_tracking_page.png';
   static const String wpfIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/wpfIcon.png';
-  static const String wpfPage = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/wpfPage.png';
+  static const String wpfPage = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/wpf_page.png';
   static const String automationIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/automationIcon.png';
   static const String backofficeIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/backofficeIcon.png';
-  static const String resumeIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/resumeIcon.png';
+  static const String policeCareIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/policecareicon.png';
+  static const String policeCarePage = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/policecare_page.png';
+  static const String policeCareFestivalIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/policecare_icon_festival.png';
+  static const String screenshotPoliceCare01 = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/screenshort_police_care_01.png';
+  static const String screenshotPoliceCare02 = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/screenshort_police_care_02.png';
+  static const String onePoliceIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/onepoliceicon.png';
+  static const String onePolicePage = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/onepolice_page.png';
 
   // การแข่งขันและร่วมงาน
   static const String tesaTopgunIcon = 'https://raw.githubusercontent.com/kittanai46/images_for_app/one_profile/assets/tesaTopgunIcon.png';
