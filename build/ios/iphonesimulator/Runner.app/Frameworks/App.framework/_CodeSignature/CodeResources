@@ -28,10 +28,6 @@
 		<data>
 		re4p7E8rPLLsN+wzaPN/+AVpXTY=
 		</data>
-		<key>flutter_assets/assets/datalist/achievements_list.json</key>
-		<data>
-		2jmj7l5rSw0yVb/vlWAYkK/YBwk=
-		</data>
 		<key>flutter_assets/assets/images/.DS_Store</key>
 		<data>
 		3y++sUAKzaCQmjLBz2v0kvESHgc=
@@ -46,7 +42,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		+mL6G2JLFb+x4m/gdi6OvdBwn3Q=
+		85zVLLzI7YA465adVCxebcPiWOI=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -98,13 +94,6 @@
 			lUijHkoEgTXB2U+Rkyi/tirix7s8q5ZVfHlB2ql3dss=
 			</data>
 		</dict>
-		<key>flutter_assets/assets/datalist/achievements_list.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
-			</data>
-		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<dict>
 			<key>hash2</key>
@@ -123,7 +112,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VvKjczXhic2yvy3m1IwKJzU1SQoks8EusMKWrjsSt08=
+			3KbQHmySqMwkPvIBYRLTv4C7adwPPwPjrXXd17mZKLU=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
